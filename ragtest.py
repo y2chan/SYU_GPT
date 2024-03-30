@@ -49,7 +49,7 @@ rag_chain = (
 
 # 단계 8: 체인 실행(Run Chain)
 # 문서에 대한 질의를 입력하고, 답변을 출력합니다.
-question = "삼육대학교의 동아리에는 어떤 것들이 있니?"
+question = ("")
 response = rag_chain.invoke(question)
 
 # 결과 출력
