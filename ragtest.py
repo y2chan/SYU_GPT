@@ -49,7 +49,7 @@ rag_chain = (
 
 # 단계 8: 체인 실행(Run Chain)
 # 문서에 대한 질의를 입력하고, 답변을 출력합니다.
-question = ("")
+question = ("현재 시간은 새벽 1시 41분이야. 셔틀버스 타려면 어디로 가야하고, 각각 위치에서 가장 빠르게 탈 수 있는 셔틀은 몇 분 남았어?")
 response = rag_chain.invoke(question)
 
 # 결과 출력
