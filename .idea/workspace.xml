@@ -7,7 +7,6 @@
     <list default="true" id="dec7fdf2-d097-4a97-9158-c56cad50f52d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/SYU_GPT data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ragtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/ragtest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
