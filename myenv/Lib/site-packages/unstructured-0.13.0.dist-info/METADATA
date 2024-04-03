@@ -1,0 +1,1629 @@
+Metadata-Version: 2.1
+Name: unstructured
+Version: 0.13.0
+Summary: A library that prepares raw documents for downstream ML tasks.
+Home-page: https://github.com/Unstructured-IO/unstructured
+Author: Unstructured Technologies
+Author-email: devops@unstructuredai.io
+License: Apache-2.0
+Keywords: NLP PDF HTML CV XML parsing preprocessing
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.9.0,<3.12
+Description-Content-Type: text/markdown
+Requires-Dist: backoff (==2.2.1)
+Requires-Dist: beautifulsoup4 (==4.12.3)
+Requires-Dist: certifi (==2024.2.2)
+Requires-Dist: chardet (==5.2.0)
+Requires-Dist: charset-normalizer (==3.3.2)
+Requires-Dist: click (==8.1.7)
+Requires-Dist: dataclasses-json (==0.6.4)
+Requires-Dist: dataclasses-json-speakeasy (==0.5.11)
+Requires-Dist: emoji (==2.10.1)
+Requires-Dist: filetype (==1.2.0)
+Requires-Dist: idna (==3.6)
+Requires-Dist: joblib (==1.3.2)
+Requires-Dist: jsonpath-python (==1.0.6)
+Requires-Dist: langdetect (==1.0.9)
+Requires-Dist: lxml (==5.1.0)
+Requires-Dist: marshmallow (==3.20.2)
+Requires-Dist: mypy-extensions (==1.0.0)
+Requires-Dist: nltk (==3.8.1)
+Requires-Dist: numpy (==1.26.4)
+Requires-Dist: packaging (==23.2)
+Requires-Dist: python-dateutil (==2.8.2)
+Requires-Dist: python-iso639 (==2024.2.7)
+Requires-Dist: python-magic (==0.4.27)
+Requires-Dist: rapidfuzz (==3.6.1)
+Requires-Dist: regex (==2023.12.25)
+Requires-Dist: requests (==2.31.0)
+Requires-Dist: six (==1.16.0)
+Requires-Dist: soupsieve (==2.5)
+Requires-Dist: tabulate (==0.9.0)
+Requires-Dist: tqdm (==4.66.2)
+Requires-Dist: typing-extensions (==4.9.0)
+Requires-Dist: typing-inspect (==0.9.0)
+Requires-Dist: unstructured-client (==0.18.0)
+Requires-Dist: urllib3 (==1.26.18)
+Requires-Dist: wrapt (==1.16.0)
+Provides-Extra: airtable
+Requires-Dist: certifi (==2024.2.2) ; extra == 'airtable'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'airtable'
+Requires-Dist: idna (==3.6) ; extra == 'airtable'
+Requires-Dist: inflection (==0.5.1) ; extra == 'airtable'
+Requires-Dist: pyairtable (==2.2.2) ; extra == 'airtable'
+Requires-Dist: pydantic (==1.10.14) ; extra == 'airtable'
+Requires-Dist: requests (==2.31.0) ; extra == 'airtable'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'airtable'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'airtable'
+Provides-Extra: all-docs
+Requires-Dist: pillow (==10.2.0) ; extra == 'all-docs'
+Requires-Dist: flatbuffers (==23.5.26) ; extra == 'all-docs'
+Requires-Dist: filelock (==3.13.1) ; extra == 'all-docs'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'all-docs'
+Requires-Dist: deprecated (==1.2.14) ; extra == 'all-docs'
+Requires-Dist: et-xmlfile (==1.1.0) ; extra == 'all-docs'
+Requires-Dist: cycler (==0.12.1) ; extra == 'all-docs'
+Requires-Dist: pypandoc (==1.12) ; extra == 'all-docs'
+Requires-Dist: fonttools (==4.49.0) ; extra == 'all-docs'
+Requires-Dist: portalocker (==2.8.2) ; extra == 'all-docs'
+Requires-Dist: omegaconf (==2.3.0) ; extra == 'all-docs'
+Requires-Dist: xlsxwriter (==3.1.9) ; extra == 'all-docs'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'all-docs'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'all-docs'
+Requires-Dist: unstructured-inference (==0.7.25) ; extra == 'all-docs'
+Requires-Dist: pypdfium2 (==4.27.0) ; extra == 'all-docs'
+Requires-Dist: torchvision (==0.17.0) ; extra == 'all-docs'
+Requires-Dist: pikepdf (==8.11.0) ; extra == 'all-docs'
+Requires-Dist: kiwisolver (==1.4.5) ; extra == 'all-docs'
+Requires-Dist: coloredlogs (==15.0.1) ; extra == 'all-docs'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'all-docs'
+Requires-Dist: pillow-heif (==0.15.0) ; extra == 'all-docs'
+Requires-Dist: torch (==2.2.0) ; extra == 'all-docs'
+Requires-Dist: markupsafe (==2.1.5) ; extra == 'all-docs'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'all-docs'
+Requires-Dist: idna (==3.6) ; extra == 'all-docs'
+Requires-Dist: antlr4-python3-runtime (==4.9.3) ; extra == 'all-docs'
+Requires-Dist: python-multipart (==0.0.9) ; extra == 'all-docs'
+Requires-Dist: pytz (==2024.1) ; extra == 'all-docs'
+Requires-Dist: cffi (==1.16.0) ; extra == 'all-docs'
+Requires-Dist: unstructured-pytesseract (==0.3.12) ; extra == 'all-docs'
+Requires-Dist: effdet (==0.4.1) ; extra == 'all-docs'
+Requires-Dist: wrapt (==1.16.0) ; extra == 'all-docs'
+Requires-Dist: numpy (==1.26.4) ; extra == 'all-docs'
+Requires-Dist: xlrd (==2.0.1) ; extra == 'all-docs'
+Requires-Dist: pypdf (==4.0.1) ; extra == 'all-docs'
+Requires-Dist: pycocotools (==2.0.7) ; extra == 'all-docs'
+Requires-Dist: regex (==2023.12.25) ; extra == 'all-docs'
+Requires-Dist: pandas (==2.2.0) ; extra == 'all-docs'
+Requires-Dist: matplotlib (==3.7.2) ; extra == 'all-docs'
+Requires-Dist: python-pptx (==0.6.23) ; extra == 'all-docs'
+Requires-Dist: mpmath (==1.3.0) ; extra == 'all-docs'
+Requires-Dist: python-docx (==1.1.0) ; extra == 'all-docs'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'all-docs'
+Requires-Dist: iopath (==0.1.10) ; extra == 'all-docs'
+Requires-Dist: packaging (==23.2) ; extra == 'all-docs'
+Requires-Dist: olefile (==0.47) ; extra == 'all-docs'
+Requires-Dist: humanfriendly (==10.0) ; extra == 'all-docs'
+Requires-Dist: importlib-resources (==6.1.1) ; extra == 'all-docs'
+Requires-Dist: pyparsing (==3.0.9) ; extra == 'all-docs'
+Requires-Dist: pytesseract (==0.3.10) ; extra == 'all-docs'
+Requires-Dist: sympy (==1.12) ; extra == 'all-docs'
+Requires-Dist: jinja2 (==3.1.3) ; extra == 'all-docs'
+Requires-Dist: markdown (==3.5.2) ; extra == 'all-docs'
+Requires-Dist: timm (==0.9.12) ; extra == 'all-docs'
+Requires-Dist: huggingface-hub (==0.20.3) ; extra == 'all-docs'
+Requires-Dist: scipy (==1.10.1) ; extra == 'all-docs'
+Requires-Dist: six (==1.16.0) ; extra == 'all-docs'
+Requires-Dist: pdf2image (==1.17.0) ; extra == 'all-docs'
+Requires-Dist: tzdata (==2024.1) ; extra == 'all-docs'
+Requires-Dist: pycparser (==2.21) ; extra == 'all-docs'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'all-docs'
+Requires-Dist: opencv-python (==4.8.0.76) ; extra == 'all-docs'
+Requires-Dist: rapidfuzz (==3.6.1) ; extra == 'all-docs'
+Requires-Dist: transformers (==4.37.1) ; extra == 'all-docs'
+Requires-Dist: safetensors (==0.3.2) ; extra == 'all-docs'
+Requires-Dist: importlib-metadata (==7.0.1) ; extra == 'all-docs'
+Requires-Dist: onnxruntime (==1.15.1) ; extra == 'all-docs'
+Requires-Dist: zipp (==3.17.0) ; extra == 'all-docs'
+Requires-Dist: contourpy (==1.2.0) ; extra == 'all-docs'
+Requires-Dist: msg-parser (==1.2.0) ; extra == 'all-docs'
+Requires-Dist: tokenizers (==0.15.2) ; extra == 'all-docs'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'all-docs'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'all-docs'
+Requires-Dist: protobuf (==4.23.4) ; extra == 'all-docs'
+Requires-Dist: requests (==2.31.0) ; extra == 'all-docs'
+Requires-Dist: pdfminer-six (==20221105) ; extra == 'all-docs'
+Requires-Dist: lxml (==5.1.0) ; extra == 'all-docs'
+Requires-Dist: networkx (==3.2.1) ; extra == 'all-docs'
+Requires-Dist: layoutparser[layoutmodels,tesseract] (==0.3.4) ; extra == 'all-docs'
+Requires-Dist: openpyxl (==3.1.2) ; extra == 'all-docs'
+Requires-Dist: onnx (==1.15.0) ; extra == 'all-docs'
+Requires-Dist: pdfplumber (==0.10.4) ; extra == 'all-docs'
+Provides-Extra: astra
+Requires-Dist: anyio (==3.7.1) ; extra == 'astra'
+Requires-Dist: astrapy (==0.7.7) ; extra == 'astra'
+Requires-Dist: cassandra-driver (==3.29.0) ; extra == 'astra'
+Requires-Dist: cassio (==0.1.5) ; extra == 'astra'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'astra'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'astra'
+Requires-Dist: click (==8.1.7) ; extra == 'astra'
+Requires-Dist: deprecation (==2.1.0) ; extra == 'astra'
+Requires-Dist: exceptiongroup (==1.2.0) ; extra == 'astra'
+Requires-Dist: geomet (==0.2.1.post1) ; extra == 'astra'
+Requires-Dist: h11 (==0.14.0) ; extra == 'astra'
+Requires-Dist: h2 (==4.1.0) ; extra == 'astra'
+Requires-Dist: hpack (==4.0.0) ; extra == 'astra'
+Requires-Dist: httpcore (==1.0.4) ; extra == 'astra'
+Requires-Dist: httpx[http2] (==0.27.0) ; extra == 'astra'
+Requires-Dist: hyperframe (==6.0.1) ; extra == 'astra'
+Requires-Dist: idna (==3.6) ; extra == 'astra'
+Requires-Dist: numpy (==1.26.4) ; extra == 'astra'
+Requires-Dist: packaging (==23.2) ; extra == 'astra'
+Requires-Dist: requests (==2.31.0) ; extra == 'astra'
+Requires-Dist: six (==1.16.0) ; extra == 'astra'
+Requires-Dist: sniffio (==1.3.0) ; extra == 'astra'
+Requires-Dist: toml (==0.10.2) ; extra == 'astra'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'astra'
+Provides-Extra: azure
+Requires-Dist: adlfs (==2024.2.0) ; extra == 'azure'
+Requires-Dist: aiohttp (==3.9.3) ; extra == 'azure'
+Requires-Dist: aiosignal (==1.3.1) ; extra == 'azure'
+Requires-Dist: async-timeout (==4.0.3) ; extra == 'azure'
+Requires-Dist: attrs (==23.2.0) ; extra == 'azure'
+Requires-Dist: azure-core (==1.30.0) ; extra == 'azure'
+Requires-Dist: azure-datalake-store (==0.0.53) ; extra == 'azure'
+Requires-Dist: azure-identity (==1.15.0) ; extra == 'azure'
+Requires-Dist: azure-storage-blob (==12.19.0) ; extra == 'azure'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'azure'
+Requires-Dist: cffi (==1.16.0) ; extra == 'azure'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'azure'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'azure'
+Requires-Dist: frozenlist (==1.4.1) ; extra == 'azure'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'azure'
+Requires-Dist: idna (==3.6) ; extra == 'azure'
+Requires-Dist: isodate (==0.6.1) ; extra == 'azure'
+Requires-Dist: msal (==1.26.0) ; extra == 'azure'
+Requires-Dist: msal-extensions (==1.1.0) ; extra == 'azure'
+Requires-Dist: multidict (==6.0.5) ; extra == 'azure'
+Requires-Dist: packaging (==23.2) ; extra == 'azure'
+Requires-Dist: portalocker (==2.8.2) ; extra == 'azure'
+Requires-Dist: pycparser (==2.21) ; extra == 'azure'
+Requires-Dist: pyjwt[crypto] (==2.8.0) ; extra == 'azure'
+Requires-Dist: requests (==2.31.0) ; extra == 'azure'
+Requires-Dist: six (==1.16.0) ; extra == 'azure'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'azure'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'azure'
+Requires-Dist: yarl (==1.9.4) ; extra == 'azure'
+Provides-Extra: azure-cognitive-search
+Requires-Dist: azure-common (==1.1.28) ; extra == 'azure-cognitive-search'
+Requires-Dist: azure-core (==1.30.0) ; extra == 'azure-cognitive-search'
+Requires-Dist: azure-search-documents (==11.4.0) ; extra == 'azure-cognitive-search'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'azure-cognitive-search'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'azure-cognitive-search'
+Requires-Dist: idna (==3.6) ; extra == 'azure-cognitive-search'
+Requires-Dist: isodate (==0.6.1) ; extra == 'azure-cognitive-search'
+Requires-Dist: requests (==2.31.0) ; extra == 'azure-cognitive-search'
+Requires-Dist: six (==1.16.0) ; extra == 'azure-cognitive-search'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'azure-cognitive-search'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'azure-cognitive-search'
+Provides-Extra: bedrock
+Requires-Dist: aiohttp (==3.9.3) ; extra == 'bedrock'
+Requires-Dist: aiosignal (==1.3.1) ; extra == 'bedrock'
+Requires-Dist: anyio (==3.7.1) ; extra == 'bedrock'
+Requires-Dist: async-timeout (==4.0.3) ; extra == 'bedrock'
+Requires-Dist: attrs (==23.2.0) ; extra == 'bedrock'
+Requires-Dist: boto3 (==1.34.63) ; extra == 'bedrock'
+Requires-Dist: botocore (==1.34.63) ; extra == 'bedrock'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'bedrock'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'bedrock'
+Requires-Dist: dataclasses-json (==0.6.4) ; extra == 'bedrock'
+Requires-Dist: exceptiongroup (==1.2.0) ; extra == 'bedrock'
+Requires-Dist: frozenlist (==1.4.1) ; extra == 'bedrock'
+Requires-Dist: idna (==3.6) ; extra == 'bedrock'
+Requires-Dist: jmespath (==1.0.1) ; extra == 'bedrock'
+Requires-Dist: jsonpatch (==1.33) ; extra == 'bedrock'
+Requires-Dist: jsonpointer (==2.4) ; extra == 'bedrock'
+Requires-Dist: langchain-community (==0.0.28) ; extra == 'bedrock'
+Requires-Dist: langchain-core (==0.1.32) ; extra == 'bedrock'
+Requires-Dist: langsmith (==0.1.26) ; extra == 'bedrock'
+Requires-Dist: marshmallow (==3.20.2) ; extra == 'bedrock'
+Requires-Dist: multidict (==6.0.5) ; extra == 'bedrock'
+Requires-Dist: mypy-extensions (==1.0.0) ; extra == 'bedrock'
+Requires-Dist: numpy (==1.26.4) ; extra == 'bedrock'
+Requires-Dist: orjson (==3.9.15) ; extra == 'bedrock'
+Requires-Dist: packaging (==23.2) ; extra == 'bedrock'
+Requires-Dist: pydantic (==1.10.14) ; extra == 'bedrock'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'bedrock'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'bedrock'
+Requires-Dist: requests (==2.31.0) ; extra == 'bedrock'
+Requires-Dist: s3transfer (==0.10.1) ; extra == 'bedrock'
+Requires-Dist: six (==1.16.0) ; extra == 'bedrock'
+Requires-Dist: sniffio (==1.3.1) ; extra == 'bedrock'
+Requires-Dist: sqlalchemy (==2.0.28) ; extra == 'bedrock'
+Requires-Dist: tenacity (==8.2.3) ; extra == 'bedrock'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'bedrock'
+Requires-Dist: typing-inspect (==0.9.0) ; extra == 'bedrock'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'bedrock'
+Requires-Dist: yarl (==1.9.4) ; extra == 'bedrock'
+Provides-Extra: biomed
+Requires-Dist: beautifulsoup4 (==4.12.3) ; extra == 'biomed'
+Requires-Dist: bs4 (==0.0.2) ; extra == 'biomed'
+Requires-Dist: soupsieve (==2.5) ; extra == 'biomed'
+Provides-Extra: box
+Requires-Dist: attrs (==23.2.0) ; extra == 'box'
+Requires-Dist: boxfs (==0.2.1) ; extra == 'box'
+Requires-Dist: boxsdk[jwt] (==3.9.2) ; extra == 'box'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'box'
+Requires-Dist: cffi (==1.16.0) ; extra == 'box'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'box'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'box'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'box'
+Requires-Dist: idna (==3.6) ; extra == 'box'
+Requires-Dist: pycparser (==2.21) ; extra == 'box'
+Requires-Dist: pyjwt (==2.8.0) ; extra == 'box'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'box'
+Requires-Dist: requests (==2.31.0) ; extra == 'box'
+Requires-Dist: requests-toolbelt (==1.0.0) ; extra == 'box'
+Requires-Dist: six (==1.16.0) ; extra == 'box'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'box'
+Provides-Extra: chroma
+Requires-Dist: anyio (==3.7.1) ; extra == 'chroma'
+Requires-Dist: asgiref (==3.7.2) ; extra == 'chroma'
+Requires-Dist: backoff (==2.2.1) ; extra == 'chroma'
+Requires-Dist: bcrypt (==4.1.2) ; extra == 'chroma'
+Requires-Dist: build (==1.0.3) ; extra == 'chroma'
+Requires-Dist: cachetools (==5.3.2) ; extra == 'chroma'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'chroma'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'chroma'
+Requires-Dist: chroma-hnswlib (==0.7.3) ; extra == 'chroma'
+Requires-Dist: chromadb (==0.4.22) ; extra == 'chroma'
+Requires-Dist: click (==8.1.7) ; extra == 'chroma'
+Requires-Dist: coloredlogs (==15.0.1) ; extra == 'chroma'
+Requires-Dist: deprecated (==1.2.14) ; extra == 'chroma'
+Requires-Dist: exceptiongroup (==1.2.0) ; extra == 'chroma'
+Requires-Dist: fastapi (==0.109.2) ; extra == 'chroma'
+Requires-Dist: filelock (==3.13.1) ; extra == 'chroma'
+Requires-Dist: flatbuffers (==23.5.26) ; extra == 'chroma'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'chroma'
+Requires-Dist: google-auth (==2.28.0) ; extra == 'chroma'
+Requires-Dist: googleapis-common-protos (==1.62.0) ; extra == 'chroma'
+Requires-Dist: grpcio (==1.60.1) ; extra == 'chroma'
+Requires-Dist: h11 (==0.14.0) ; extra == 'chroma'
+Requires-Dist: httptools (==0.6.1) ; extra == 'chroma'
+Requires-Dist: huggingface-hub (==0.20.3) ; extra == 'chroma'
+Requires-Dist: humanfriendly (==10.0) ; extra == 'chroma'
+Requires-Dist: idna (==3.6) ; extra == 'chroma'
+Requires-Dist: importlib-metadata (==6.11.0) ; extra == 'chroma'
+Requires-Dist: importlib-resources (==6.1.1) ; extra == 'chroma'
+Requires-Dist: kubernetes (==29.0.0) ; extra == 'chroma'
+Requires-Dist: mmh3 (==4.1.0) ; extra == 'chroma'
+Requires-Dist: monotonic (==1.6) ; extra == 'chroma'
+Requires-Dist: mpmath (==1.3.0) ; extra == 'chroma'
+Requires-Dist: numpy (==1.26.4) ; extra == 'chroma'
+Requires-Dist: oauthlib (==3.2.2) ; extra == 'chroma'
+Requires-Dist: onnxruntime (==1.15.1) ; extra == 'chroma'
+Requires-Dist: opentelemetry-api (==1.22.0) ; extra == 'chroma'
+Requires-Dist: opentelemetry-exporter-otlp-proto-common (==1.22.0) ; extra == 'chroma'
+Requires-Dist: opentelemetry-exporter-otlp-proto-grpc (==1.22.0) ; extra == 'chroma'
+Requires-Dist: opentelemetry-instrumentation (==0.43b0) ; extra == 'chroma'
+Requires-Dist: opentelemetry-instrumentation-asgi (==0.43b0) ; extra == 'chroma'
+Requires-Dist: opentelemetry-instrumentation-fastapi (==0.43b0) ; extra == 'chroma'
+Requires-Dist: opentelemetry-proto (==1.22.0) ; extra == 'chroma'
+Requires-Dist: opentelemetry-sdk (==1.22.0) ; extra == 'chroma'
+Requires-Dist: opentelemetry-semantic-conventions (==0.43b0) ; extra == 'chroma'
+Requires-Dist: opentelemetry-util-http (==0.43b0) ; extra == 'chroma'
+Requires-Dist: overrides (==7.7.0) ; extra == 'chroma'
+Requires-Dist: packaging (==23.2) ; extra == 'chroma'
+Requires-Dist: posthog (==3.4.1) ; extra == 'chroma'
+Requires-Dist: protobuf (==4.23.4) ; extra == 'chroma'
+Requires-Dist: pulsar-client (==3.4.0) ; extra == 'chroma'
+Requires-Dist: pyasn1 (==0.5.1) ; extra == 'chroma'
+Requires-Dist: pyasn1-modules (==0.3.0) ; extra == 'chroma'
+Requires-Dist: pydantic (==1.10.14) ; extra == 'chroma'
+Requires-Dist: pypika (==0.48.9) ; extra == 'chroma'
+Requires-Dist: pyproject-hooks (==1.0.0) ; extra == 'chroma'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'chroma'
+Requires-Dist: python-dotenv (==1.0.1) ; extra == 'chroma'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'chroma'
+Requires-Dist: requests (==2.31.0) ; extra == 'chroma'
+Requires-Dist: requests-oauthlib (==1.3.1) ; extra == 'chroma'
+Requires-Dist: rsa (==4.9) ; extra == 'chroma'
+Requires-Dist: six (==1.16.0) ; extra == 'chroma'
+Requires-Dist: sniffio (==1.3.0) ; extra == 'chroma'
+Requires-Dist: starlette (==0.36.3) ; extra == 'chroma'
+Requires-Dist: sympy (==1.12) ; extra == 'chroma'
+Requires-Dist: tenacity (==8.2.3) ; extra == 'chroma'
+Requires-Dist: tokenizers (==0.15.2) ; extra == 'chroma'
+Requires-Dist: tomli (==2.0.1) ; extra == 'chroma'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'chroma'
+Requires-Dist: typer (==0.9.0) ; extra == 'chroma'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'chroma'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'chroma'
+Requires-Dist: uvicorn[standard] (==0.27.1) ; extra == 'chroma'
+Requires-Dist: uvloop (==0.19.0) ; extra == 'chroma'
+Requires-Dist: watchfiles (==0.21.0) ; extra == 'chroma'
+Requires-Dist: websocket-client (==1.7.0) ; extra == 'chroma'
+Requires-Dist: websockets (==12.0) ; extra == 'chroma'
+Requires-Dist: wrapt (==1.16.0) ; extra == 'chroma'
+Requires-Dist: zipp (==3.17.0) ; extra == 'chroma'
+Provides-Extra: clarifai
+Requires-Dist: aiohttp (==3.9.3) ; extra == 'clarifai'
+Requires-Dist: aiosignal (==1.3.1) ; extra == 'clarifai'
+Requires-Dist: anyio (==3.7.1) ; extra == 'clarifai'
+Requires-Dist: async-timeout (==4.0.3) ; extra == 'clarifai'
+Requires-Dist: attrs (==23.2.0) ; extra == 'clarifai'
+Requires-Dist: beautifulsoup4 (==4.12.3) ; extra == 'clarifai'
+Requires-Dist: bs4 (==0.0.2) ; extra == 'clarifai'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'clarifai'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'clarifai'
+Requires-Dist: clarifai (==10.0.1) ; extra == 'clarifai'
+Requires-Dist: clarifai-grpc (==10.0.10) ; extra == 'clarifai'
+Requires-Dist: click (==8.1.7) ; extra == 'clarifai'
+Requires-Dist: contextlib2 (==21.6.0) ; extra == 'clarifai'
+Requires-Dist: dataclasses-json (==0.6.4) ; extra == 'clarifai'
+Requires-Dist: deprecated (==1.2.14) ; extra == 'clarifai'
+Requires-Dist: dirtyjson (==1.0.8) ; extra == 'clarifai'
+Requires-Dist: distro (==1.9.0) ; extra == 'clarifai'
+Requires-Dist: exceptiongroup (==1.2.0) ; extra == 'clarifai'
+Requires-Dist: frozenlist (==1.4.1) ; extra == 'clarifai'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'clarifai'
+Requires-Dist: googleapis-common-protos (==1.63.0) ; extra == 'clarifai'
+Requires-Dist: greenlet (==3.0.3) ; extra == 'clarifai'
+Requires-Dist: grpcio (==1.62.1) ; extra == 'clarifai'
+Requires-Dist: h11 (==0.14.0) ; extra == 'clarifai'
+Requires-Dist: httpcore (==1.0.4) ; extra == 'clarifai'
+Requires-Dist: httpx (==0.27.0) ; extra == 'clarifai'
+Requires-Dist: idna (==3.6) ; extra == 'clarifai'
+Requires-Dist: joblib (==1.3.2) ; extra == 'clarifai'
+Requires-Dist: llama-index (==0.10.19) ; extra == 'clarifai'
+Requires-Dist: llama-index-agent-openai (==0.1.5) ; extra == 'clarifai'
+Requires-Dist: llama-index-cli (==0.1.9) ; extra == 'clarifai'
+Requires-Dist: llama-index-core (==0.10.19) ; extra == 'clarifai'
+Requires-Dist: llama-index-embeddings-openai (==0.1.6) ; extra == 'clarifai'
+Requires-Dist: llama-index-indices-managed-llama-cloud (==0.1.4) ; extra == 'clarifai'
+Requires-Dist: llama-index-legacy (==0.9.48) ; extra == 'clarifai'
+Requires-Dist: llama-index-llms-openai (==0.1.9) ; extra == 'clarifai'
+Requires-Dist: llama-index-multi-modal-llms-openai (==0.1.4) ; extra == 'clarifai'
+Requires-Dist: llama-index-program-openai (==0.1.4) ; extra == 'clarifai'
+Requires-Dist: llama-index-question-gen-openai (==0.1.3) ; extra == 'clarifai'
+Requires-Dist: llama-index-readers-file (==0.1.9) ; extra == 'clarifai'
+Requires-Dist: llama-index-readers-llama-parse (==0.1.3) ; extra == 'clarifai'
+Requires-Dist: llama-parse (==0.3.9) ; extra == 'clarifai'
+Requires-Dist: llamaindex-py-client (==0.1.13) ; extra == 'clarifai'
+Requires-Dist: markdown-it-py (==3.0.0) ; extra == 'clarifai'
+Requires-Dist: marshmallow (==3.20.2) ; extra == 'clarifai'
+Requires-Dist: mdurl (==0.1.2) ; extra == 'clarifai'
+Requires-Dist: multidict (==6.0.5) ; extra == 'clarifai'
+Requires-Dist: mypy-extensions (==1.0.0) ; extra == 'clarifai'
+Requires-Dist: nest-asyncio (==1.6.0) ; extra == 'clarifai'
+Requires-Dist: networkx (==3.2.1) ; extra == 'clarifai'
+Requires-Dist: nltk (==3.8.1) ; extra == 'clarifai'
+Requires-Dist: numpy (==1.26.4) ; extra == 'clarifai'
+Requires-Dist: openai (==1.13.3) ; extra == 'clarifai'
+Requires-Dist: opencv-python (==4.8.0.76) ; extra == 'clarifai'
+Requires-Dist: packaging (==23.2) ; extra == 'clarifai'
+Requires-Dist: pandas (==2.2.1) ; extra == 'clarifai'
+Requires-Dist: pillow (==10.2.0) ; extra == 'clarifai'
+Requires-Dist: protobuf (==4.23.4) ; extra == 'clarifai'
+Requires-Dist: pydantic (==1.10.14) ; extra == 'clarifai'
+Requires-Dist: pygments (==2.17.2) ; extra == 'clarifai'
+Requires-Dist: pymupdf (==1.23.26) ; extra == 'clarifai'
+Requires-Dist: pymupdfb (==1.23.22) ; extra == 'clarifai'
+Requires-Dist: pypdf (==4.1.0) ; extra == 'clarifai'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'clarifai'
+Requires-Dist: python-rapidjson (==1.16) ; extra == 'clarifai'
+Requires-Dist: pytz (==2024.1) ; extra == 'clarifai'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'clarifai'
+Requires-Dist: regex (==2023.12.25) ; extra == 'clarifai'
+Requires-Dist: requests (==2.31.0) ; extra == 'clarifai'
+Requires-Dist: rich (==13.7.1) ; extra == 'clarifai'
+Requires-Dist: schema (==0.7.5) ; extra == 'clarifai'
+Requires-Dist: six (==1.16.0) ; extra == 'clarifai'
+Requires-Dist: sniffio (==1.3.1) ; extra == 'clarifai'
+Requires-Dist: soupsieve (==2.5) ; extra == 'clarifai'
+Requires-Dist: sqlalchemy[asyncio] (==2.0.28) ; extra == 'clarifai'
+Requires-Dist: striprtf (==0.0.26) ; extra == 'clarifai'
+Requires-Dist: tenacity (==8.2.3) ; extra == 'clarifai'
+Requires-Dist: tiktoken (==0.6.0) ; extra == 'clarifai'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'clarifai'
+Requires-Dist: tritonclient (==2.41.1) ; extra == 'clarifai'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'clarifai'
+Requires-Dist: typing-inspect (==0.9.0) ; extra == 'clarifai'
+Requires-Dist: tzdata (==2024.1) ; extra == 'clarifai'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'clarifai'
+Requires-Dist: wrapt (==1.16.0) ; extra == 'clarifai'
+Requires-Dist: yarl (==1.9.4) ; extra == 'clarifai'
+Provides-Extra: confluence
+Requires-Dist: atlassian-python-api (==3.41.10) ; extra == 'confluence'
+Requires-Dist: beautifulsoup4 (==4.12.3) ; extra == 'confluence'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'confluence'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'confluence'
+Requires-Dist: deprecated (==1.2.14) ; extra == 'confluence'
+Requires-Dist: idna (==3.6) ; extra == 'confluence'
+Requires-Dist: jmespath (==1.0.1) ; extra == 'confluence'
+Requires-Dist: oauthlib (==3.2.2) ; extra == 'confluence'
+Requires-Dist: requests (==2.31.0) ; extra == 'confluence'
+Requires-Dist: requests-oauthlib (==1.3.1) ; extra == 'confluence'
+Requires-Dist: six (==1.16.0) ; extra == 'confluence'
+Requires-Dist: soupsieve (==2.5) ; extra == 'confluence'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'confluence'
+Requires-Dist: wrapt (==1.16.0) ; extra == 'confluence'
+Provides-Extra: csv
+Requires-Dist: numpy (==1.26.4) ; extra == 'csv'
+Requires-Dist: pandas (==2.2.0) ; extra == 'csv'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'csv'
+Requires-Dist: pytz (==2024.1) ; extra == 'csv'
+Requires-Dist: six (==1.16.0) ; extra == 'csv'
+Requires-Dist: tzdata (==2024.1) ; extra == 'csv'
+Provides-Extra: databricks-volumes
+Requires-Dist: cachetools (==5.3.2) ; extra == 'databricks-volumes'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'databricks-volumes'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'databricks-volumes'
+Requires-Dist: databricks-sdk (==0.19.1) ; extra == 'databricks-volumes'
+Requires-Dist: google-auth (==2.28.0) ; extra == 'databricks-volumes'
+Requires-Dist: idna (==3.6) ; extra == 'databricks-volumes'
+Requires-Dist: pyasn1 (==0.5.1) ; extra == 'databricks-volumes'
+Requires-Dist: pyasn1-modules (==0.3.0) ; extra == 'databricks-volumes'
+Requires-Dist: requests (==2.31.0) ; extra == 'databricks-volumes'
+Requires-Dist: rsa (==4.9) ; extra == 'databricks-volumes'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'databricks-volumes'
+Provides-Extra: delta-table
+Requires-Dist: deltalake (==0.15.3) ; extra == 'delta-table'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'delta-table'
+Requires-Dist: numpy (==1.26.4) ; extra == 'delta-table'
+Requires-Dist: pyarrow (==15.0.0) ; extra == 'delta-table'
+Requires-Dist: pyarrow-hotfix (==0.6) ; extra == 'delta-table'
+Provides-Extra: discord
+Requires-Dist: aiohttp (==3.9.3) ; extra == 'discord'
+Requires-Dist: aiosignal (==1.3.1) ; extra == 'discord'
+Requires-Dist: async-timeout (==4.0.3) ; extra == 'discord'
+Requires-Dist: attrs (==23.2.0) ; extra == 'discord'
+Requires-Dist: discord-py (==2.3.2) ; extra == 'discord'
+Requires-Dist: frozenlist (==1.4.1) ; extra == 'discord'
+Requires-Dist: idna (==3.6) ; extra == 'discord'
+Requires-Dist: multidict (==6.0.5) ; extra == 'discord'
+Requires-Dist: yarl (==1.9.4) ; extra == 'discord'
+Provides-Extra: doc
+Requires-Dist: lxml (==5.1.0) ; extra == 'doc'
+Requires-Dist: python-docx (==1.1.0) ; extra == 'doc'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'doc'
+Provides-Extra: docx
+Requires-Dist: lxml (==5.1.0) ; extra == 'docx'
+Requires-Dist: python-docx (==1.1.0) ; extra == 'docx'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'docx'
+Provides-Extra: dropbox
+Requires-Dist: certifi (==2024.2.2) ; extra == 'dropbox'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'dropbox'
+Requires-Dist: dropbox (==11.36.2) ; extra == 'dropbox'
+Requires-Dist: dropboxdrivefs (==1.3.1) ; extra == 'dropbox'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'dropbox'
+Requires-Dist: idna (==3.6) ; extra == 'dropbox'
+Requires-Dist: ply (==3.11) ; extra == 'dropbox'
+Requires-Dist: requests (==2.31.0) ; extra == 'dropbox'
+Requires-Dist: six (==1.16.0) ; extra == 'dropbox'
+Requires-Dist: stone (==3.3.1) ; extra == 'dropbox'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'dropbox'
+Provides-Extra: elasticsearch
+Requires-Dist: certifi (==2024.2.2) ; extra == 'elasticsearch'
+Requires-Dist: elastic-transport (==8.12.0) ; extra == 'elasticsearch'
+Requires-Dist: elasticsearch (==8.12.0) ; extra == 'elasticsearch'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'elasticsearch'
+Provides-Extra: embed-huggingface
+Requires-Dist: aiohttp (==3.9.3) ; extra == 'embed-huggingface'
+Requires-Dist: aiosignal (==1.3.1) ; extra == 'embed-huggingface'
+Requires-Dist: anyio (==3.7.1) ; extra == 'embed-huggingface'
+Requires-Dist: async-timeout (==4.0.3) ; extra == 'embed-huggingface'
+Requires-Dist: attrs (==23.2.0) ; extra == 'embed-huggingface'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'embed-huggingface'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'embed-huggingface'
+Requires-Dist: click (==8.1.7) ; extra == 'embed-huggingface'
+Requires-Dist: dataclasses-json (==0.6.4) ; extra == 'embed-huggingface'
+Requires-Dist: exceptiongroup (==1.2.0) ; extra == 'embed-huggingface'
+Requires-Dist: filelock (==3.13.1) ; extra == 'embed-huggingface'
+Requires-Dist: frozenlist (==1.4.1) ; extra == 'embed-huggingface'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'embed-huggingface'
+Requires-Dist: huggingface (==0.0.1) ; extra == 'embed-huggingface'
+Requires-Dist: huggingface-hub (==0.20.3) ; extra == 'embed-huggingface'
+Requires-Dist: idna (==3.6) ; extra == 'embed-huggingface'
+Requires-Dist: jinja2 (==3.1.3) ; extra == 'embed-huggingface'
+Requires-Dist: joblib (==1.3.2) ; extra == 'embed-huggingface'
+Requires-Dist: jsonpatch (==1.33) ; extra == 'embed-huggingface'
+Requires-Dist: jsonpointer (==2.4) ; extra == 'embed-huggingface'
+Requires-Dist: langchain-community (==0.0.20) ; extra == 'embed-huggingface'
+Requires-Dist: langchain-core (==0.1.23) ; extra == 'embed-huggingface'
+Requires-Dist: langsmith (==0.0.87) ; extra == 'embed-huggingface'
+Requires-Dist: markupsafe (==2.1.5) ; extra == 'embed-huggingface'
+Requires-Dist: marshmallow (==3.20.2) ; extra == 'embed-huggingface'
+Requires-Dist: mpmath (==1.3.0) ; extra == 'embed-huggingface'
+Requires-Dist: multidict (==6.0.5) ; extra == 'embed-huggingface'
+Requires-Dist: mypy-extensions (==1.0.0) ; extra == 'embed-huggingface'
+Requires-Dist: networkx (==3.2.1) ; extra == 'embed-huggingface'
+Requires-Dist: nltk (==3.8.1) ; extra == 'embed-huggingface'
+Requires-Dist: numpy (==1.26.4) ; extra == 'embed-huggingface'
+Requires-Dist: packaging (==23.2) ; extra == 'embed-huggingface'
+Requires-Dist: pillow (==10.2.0) ; extra == 'embed-huggingface'
+Requires-Dist: pydantic (==1.10.14) ; extra == 'embed-huggingface'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'embed-huggingface'
+Requires-Dist: regex (==2023.12.25) ; extra == 'embed-huggingface'
+Requires-Dist: requests (==2.31.0) ; extra == 'embed-huggingface'
+Requires-Dist: safetensors (==0.3.2) ; extra == 'embed-huggingface'
+Requires-Dist: scikit-learn (==1.4.0) ; extra == 'embed-huggingface'
+Requires-Dist: scipy (==1.10.1) ; extra == 'embed-huggingface'
+Requires-Dist: sentence-transformers (==2.3.1) ; extra == 'embed-huggingface'
+Requires-Dist: sentencepiece (==0.1.99) ; extra == 'embed-huggingface'
+Requires-Dist: sniffio (==1.3.0) ; extra == 'embed-huggingface'
+Requires-Dist: sqlalchemy (==2.0.27) ; extra == 'embed-huggingface'
+Requires-Dist: sympy (==1.12) ; extra == 'embed-huggingface'
+Requires-Dist: tenacity (==8.2.3) ; extra == 'embed-huggingface'
+Requires-Dist: threadpoolctl (==3.3.0) ; extra == 'embed-huggingface'
+Requires-Dist: tokenizers (==0.15.2) ; extra == 'embed-huggingface'
+Requires-Dist: torch (==2.2.0) ; extra == 'embed-huggingface'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'embed-huggingface'
+Requires-Dist: transformers (==4.37.1) ; extra == 'embed-huggingface'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'embed-huggingface'
+Requires-Dist: typing-inspect (==0.9.0) ; extra == 'embed-huggingface'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'embed-huggingface'
+Requires-Dist: yarl (==1.9.4) ; extra == 'embed-huggingface'
+Provides-Extra: embed-octoai
+Requires-Dist: anyio (==3.7.1) ; extra == 'embed-octoai'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'embed-octoai'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'embed-octoai'
+Requires-Dist: distro (==1.9.0) ; extra == 'embed-octoai'
+Requires-Dist: exceptiongroup (==1.2.0) ; extra == 'embed-octoai'
+Requires-Dist: h11 (==0.14.0) ; extra == 'embed-octoai'
+Requires-Dist: httpcore (==1.0.4) ; extra == 'embed-octoai'
+Requires-Dist: httpx (==0.27.0) ; extra == 'embed-octoai'
+Requires-Dist: idna (==3.6) ; extra == 'embed-octoai'
+Requires-Dist: openai (==1.14.3) ; extra == 'embed-octoai'
+Requires-Dist: pydantic (==1.10.14) ; extra == 'embed-octoai'
+Requires-Dist: regex (==2023.12.25) ; extra == 'embed-octoai'
+Requires-Dist: requests (==2.31.0) ; extra == 'embed-octoai'
+Requires-Dist: sniffio (==1.3.1) ; extra == 'embed-octoai'
+Requires-Dist: tiktoken (==0.6.0) ; extra == 'embed-octoai'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'embed-octoai'
+Requires-Dist: typing-extensions (==4.10.0) ; extra == 'embed-octoai'
+Requires-Dist: urllib3 (==2.2.1) ; extra == 'embed-octoai'
+Provides-Extra: embed-vertexai
+Requires-Dist: aiohttp (==3.9.3) ; extra == 'embed-vertexai'
+Requires-Dist: aiosignal (==1.3.1) ; extra == 'embed-vertexai'
+Requires-Dist: anyio (==3.7.1) ; extra == 'embed-vertexai'
+Requires-Dist: async-timeout (==4.0.3) ; extra == 'embed-vertexai'
+Requires-Dist: attrs (==23.2.0) ; extra == 'embed-vertexai'
+Requires-Dist: cachetools (==5.3.3) ; extra == 'embed-vertexai'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'embed-vertexai'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'embed-vertexai'
+Requires-Dist: dataclasses-json (==0.6.4) ; extra == 'embed-vertexai'
+Requires-Dist: exceptiongroup (==1.2.0) ; extra == 'embed-vertexai'
+Requires-Dist: frozenlist (==1.4.1) ; extra == 'embed-vertexai'
+Requires-Dist: google-api-core[grpc] (==2.18.0) ; extra == 'embed-vertexai'
+Requires-Dist: google-auth (==2.29.0) ; extra == 'embed-vertexai'
+Requires-Dist: google-cloud-aiplatform (==1.44.0) ; extra == 'embed-vertexai'
+Requires-Dist: google-cloud-bigquery (==3.19.0) ; extra == 'embed-vertexai'
+Requires-Dist: google-cloud-core (==2.4.1) ; extra == 'embed-vertexai'
+Requires-Dist: google-cloud-resource-manager (==1.12.3) ; extra == 'embed-vertexai'
+Requires-Dist: google-cloud-storage (==2.16.0) ; extra == 'embed-vertexai'
+Requires-Dist: google-crc32c (==1.5.0) ; extra == 'embed-vertexai'
+Requires-Dist: google-resumable-media (==2.7.0) ; extra == 'embed-vertexai'
+Requires-Dist: googleapis-common-protos[grpc] (==1.63.0) ; extra == 'embed-vertexai'
+Requires-Dist: grpc-google-iam-v1 (==0.13.0) ; extra == 'embed-vertexai'
+Requires-Dist: grpcio (==1.62.1) ; extra == 'embed-vertexai'
+Requires-Dist: grpcio-status (==1.62.1) ; extra == 'embed-vertexai'
+Requires-Dist: idna (==3.6) ; extra == 'embed-vertexai'
+Requires-Dist: jsonpatch (==1.33) ; extra == 'embed-vertexai'
+Requires-Dist: jsonpointer (==2.4) ; extra == 'embed-vertexai'
+Requires-Dist: langchain (==0.1.13) ; extra == 'embed-vertexai'
+Requires-Dist: langchain-community (==0.0.29) ; extra == 'embed-vertexai'
+Requires-Dist: langchain-core (==0.1.33) ; extra == 'embed-vertexai'
+Requires-Dist: langchain-google-vertexai (==0.1.1) ; extra == 'embed-vertexai'
+Requires-Dist: langchain-text-splitters (==0.0.1) ; extra == 'embed-vertexai'
+Requires-Dist: langsmith (==0.1.31) ; extra == 'embed-vertexai'
+Requires-Dist: marshmallow (==3.21.1) ; extra == 'embed-vertexai'
+Requires-Dist: multidict (==6.0.5) ; extra == 'embed-vertexai'
+Requires-Dist: mypy-extensions (==1.0.0) ; extra == 'embed-vertexai'
+Requires-Dist: numpy (==1.26.4) ; extra == 'embed-vertexai'
+Requires-Dist: orjson (==3.9.15) ; extra == 'embed-vertexai'
+Requires-Dist: packaging (==23.2) ; extra == 'embed-vertexai'
+Requires-Dist: proto-plus (==1.23.0) ; extra == 'embed-vertexai'
+Requires-Dist: protobuf (==4.23.4) ; extra == 'embed-vertexai'
+Requires-Dist: pyasn1 (==0.5.1) ; extra == 'embed-vertexai'
+Requires-Dist: pyasn1-modules (==0.3.0) ; extra == 'embed-vertexai'
+Requires-Dist: pydantic (==1.10.14) ; extra == 'embed-vertexai'
+Requires-Dist: python-dateutil (==2.9.0.post0) ; extra == 'embed-vertexai'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'embed-vertexai'
+Requires-Dist: requests (==2.31.0) ; extra == 'embed-vertexai'
+Requires-Dist: rsa (==4.9) ; extra == 'embed-vertexai'
+Requires-Dist: shapely (==2.0.3) ; extra == 'embed-vertexai'
+Requires-Dist: six (==1.16.0) ; extra == 'embed-vertexai'
+Requires-Dist: sniffio (==1.3.1) ; extra == 'embed-vertexai'
+Requires-Dist: sqlalchemy (==2.0.29) ; extra == 'embed-vertexai'
+Requires-Dist: tenacity (==8.2.3) ; extra == 'embed-vertexai'
+Requires-Dist: types-protobuf (==4.24.0.20240311) ; extra == 'embed-vertexai'
+Requires-Dist: types-requests (==2.31.0.20240311) ; extra == 'embed-vertexai'
+Requires-Dist: typing-extensions (==4.10.0) ; extra == 'embed-vertexai'
+Requires-Dist: typing-inspect (==0.9.0) ; extra == 'embed-vertexai'
+Requires-Dist: urllib3 (==2.2.1) ; extra == 'embed-vertexai'
+Requires-Dist: yarl (==1.9.4) ; extra == 'embed-vertexai'
+Provides-Extra: epub
+Requires-Dist: pypandoc (==1.12) ; extra == 'epub'
+Provides-Extra: gcs
+Requires-Dist: aiohttp (==3.9.3) ; extra == 'gcs'
+Requires-Dist: aiosignal (==1.3.1) ; extra == 'gcs'
+Requires-Dist: async-timeout (==4.0.3) ; extra == 'gcs'
+Requires-Dist: attrs (==23.2.0) ; extra == 'gcs'
+Requires-Dist: beautifulsoup4 (==4.12.3) ; extra == 'gcs'
+Requires-Dist: bs4 (==0.0.2) ; extra == 'gcs'
+Requires-Dist: cachetools (==5.3.2) ; extra == 'gcs'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'gcs'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'gcs'
+Requires-Dist: decorator (==5.1.1) ; extra == 'gcs'
+Requires-Dist: frozenlist (==1.4.1) ; extra == 'gcs'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'gcs'
+Requires-Dist: gcsfs (==2024.2.0) ; extra == 'gcs'
+Requires-Dist: google-api-core (==2.17.1) ; extra == 'gcs'
+Requires-Dist: google-auth (==2.28.0) ; extra == 'gcs'
+Requires-Dist: google-auth-oauthlib (==1.2.0) ; extra == 'gcs'
+Requires-Dist: google-cloud-core (==2.4.1) ; extra == 'gcs'
+Requires-Dist: google-cloud-storage (==2.14.0) ; extra == 'gcs'
+Requires-Dist: google-crc32c (==1.5.0) ; extra == 'gcs'
+Requires-Dist: google-resumable-media (==2.7.0) ; extra == 'gcs'
+Requires-Dist: googleapis-common-protos (==1.62.0) ; extra == 'gcs'
+Requires-Dist: idna (==3.6) ; extra == 'gcs'
+Requires-Dist: multidict (==6.0.5) ; extra == 'gcs'
+Requires-Dist: oauthlib (==3.2.2) ; extra == 'gcs'
+Requires-Dist: protobuf (==4.23.4) ; extra == 'gcs'
+Requires-Dist: pyasn1 (==0.5.1) ; extra == 'gcs'
+Requires-Dist: pyasn1-modules (==0.3.0) ; extra == 'gcs'
+Requires-Dist: requests (==2.31.0) ; extra == 'gcs'
+Requires-Dist: requests-oauthlib (==1.3.1) ; extra == 'gcs'
+Requires-Dist: rsa (==4.9) ; extra == 'gcs'
+Requires-Dist: soupsieve (==2.5) ; extra == 'gcs'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'gcs'
+Requires-Dist: yarl (==1.9.4) ; extra == 'gcs'
+Provides-Extra: github
+Requires-Dist: certifi (==2024.2.2) ; extra == 'github'
+Requires-Dist: cffi (==1.16.0) ; extra == 'github'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'github'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'github'
+Requires-Dist: deprecated (==1.2.14) ; extra == 'github'
+Requires-Dist: idna (==3.6) ; extra == 'github'
+Requires-Dist: pycparser (==2.21) ; extra == 'github'
+Requires-Dist: pygithub (==2.2.0) ; extra == 'github'
+Requires-Dist: pyjwt[crypto] (==2.8.0) ; extra == 'github'
+Requires-Dist: pynacl (==1.5.0) ; extra == 'github'
+Requires-Dist: requests (==2.31.0) ; extra == 'github'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'github'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'github'
+Requires-Dist: wrapt (==1.16.0) ; extra == 'github'
+Provides-Extra: gitlab
+Requires-Dist: certifi (==2024.2.2) ; extra == 'gitlab'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'gitlab'
+Requires-Dist: idna (==3.6) ; extra == 'gitlab'
+Requires-Dist: python-gitlab (==4.4.0) ; extra == 'gitlab'
+Requires-Dist: requests (==2.31.0) ; extra == 'gitlab'
+Requires-Dist: requests-toolbelt (==1.0.0) ; extra == 'gitlab'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'gitlab'
+Provides-Extra: google-drive
+Requires-Dist: cachetools (==5.3.2) ; extra == 'google-drive'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'google-drive'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'google-drive'
+Requires-Dist: google-api-core (==2.17.1) ; extra == 'google-drive'
+Requires-Dist: google-api-python-client (==2.118.0) ; extra == 'google-drive'
+Requires-Dist: google-auth (==2.28.0) ; extra == 'google-drive'
+Requires-Dist: google-auth-httplib2 (==0.2.0) ; extra == 'google-drive'
+Requires-Dist: googleapis-common-protos (==1.62.0) ; extra == 'google-drive'
+Requires-Dist: httplib2 (==0.22.0) ; extra == 'google-drive'
+Requires-Dist: idna (==3.6) ; extra == 'google-drive'
+Requires-Dist: protobuf (==4.23.4) ; extra == 'google-drive'
+Requires-Dist: pyasn1 (==0.5.1) ; extra == 'google-drive'
+Requires-Dist: pyasn1-modules (==0.3.0) ; extra == 'google-drive'
+Requires-Dist: pyparsing (==3.0.9) ; extra == 'google-drive'
+Requires-Dist: requests (==2.31.0) ; extra == 'google-drive'
+Requires-Dist: rsa (==4.9) ; extra == 'google-drive'
+Requires-Dist: uritemplate (==4.1.1) ; extra == 'google-drive'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'google-drive'
+Provides-Extra: hubspot
+Requires-Dist: certifi (==2024.2.2) ; extra == 'hubspot'
+Requires-Dist: hubspot-api-client (==8.2.1) ; extra == 'hubspot'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'hubspot'
+Requires-Dist: six (==1.16.0) ; extra == 'hubspot'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'hubspot'
+Provides-Extra: huggingface
+Requires-Dist: certifi (==2024.2.2) ; extra == 'huggingface'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'huggingface'
+Requires-Dist: click (==8.1.7) ; extra == 'huggingface'
+Requires-Dist: filelock (==3.13.1) ; extra == 'huggingface'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'huggingface'
+Requires-Dist: huggingface-hub (==0.20.3) ; extra == 'huggingface'
+Requires-Dist: idna (==3.6) ; extra == 'huggingface'
+Requires-Dist: jinja2 (==3.1.3) ; extra == 'huggingface'
+Requires-Dist: joblib (==1.3.2) ; extra == 'huggingface'
+Requires-Dist: langdetect (==1.0.9) ; extra == 'huggingface'
+Requires-Dist: markupsafe (==2.1.5) ; extra == 'huggingface'
+Requires-Dist: mpmath (==1.3.0) ; extra == 'huggingface'
+Requires-Dist: networkx (==3.2.1) ; extra == 'huggingface'
+Requires-Dist: numpy (==1.26.4) ; extra == 'huggingface'
+Requires-Dist: packaging (==23.2) ; extra == 'huggingface'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'huggingface'
+Requires-Dist: regex (==2023.12.25) ; extra == 'huggingface'
+Requires-Dist: requests (==2.31.0) ; extra == 'huggingface'
+Requires-Dist: sacremoses (==0.1.1) ; extra == 'huggingface'
+Requires-Dist: safetensors (==0.3.2) ; extra == 'huggingface'
+Requires-Dist: sentencepiece (==0.1.99) ; extra == 'huggingface'
+Requires-Dist: six (==1.16.0) ; extra == 'huggingface'
+Requires-Dist: sympy (==1.12) ; extra == 'huggingface'
+Requires-Dist: tokenizers (==0.15.2) ; extra == 'huggingface'
+Requires-Dist: torch (==2.2.0) ; extra == 'huggingface'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'huggingface'
+Requires-Dist: transformers (==4.37.1) ; extra == 'huggingface'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'huggingface'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'huggingface'
+Provides-Extra: image
+Requires-Dist: antlr4-python3-runtime (==4.9.3) ; extra == 'image'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'image'
+Requires-Dist: cffi (==1.16.0) ; extra == 'image'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'image'
+Requires-Dist: coloredlogs (==15.0.1) ; extra == 'image'
+Requires-Dist: contourpy (==1.2.0) ; extra == 'image'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'image'
+Requires-Dist: cycler (==0.12.1) ; extra == 'image'
+Requires-Dist: deprecated (==1.2.14) ; extra == 'image'
+Requires-Dist: effdet (==0.4.1) ; extra == 'image'
+Requires-Dist: filelock (==3.13.1) ; extra == 'image'
+Requires-Dist: flatbuffers (==23.5.26) ; extra == 'image'
+Requires-Dist: fonttools (==4.49.0) ; extra == 'image'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'image'
+Requires-Dist: huggingface-hub (==0.20.3) ; extra == 'image'
+Requires-Dist: humanfriendly (==10.0) ; extra == 'image'
+Requires-Dist: idna (==3.6) ; extra == 'image'
+Requires-Dist: importlib-resources (==6.1.1) ; extra == 'image'
+Requires-Dist: iopath (==0.1.10) ; extra == 'image'
+Requires-Dist: jinja2 (==3.1.3) ; extra == 'image'
+Requires-Dist: kiwisolver (==1.4.5) ; extra == 'image'
+Requires-Dist: layoutparser[layoutmodels,tesseract] (==0.3.4) ; extra == 'image'
+Requires-Dist: lxml (==5.1.0) ; extra == 'image'
+Requires-Dist: markupsafe (==2.1.5) ; extra == 'image'
+Requires-Dist: matplotlib (==3.7.2) ; extra == 'image'
+Requires-Dist: mpmath (==1.3.0) ; extra == 'image'
+Requires-Dist: networkx (==3.2.1) ; extra == 'image'
+Requires-Dist: numpy (==1.26.4) ; extra == 'image'
+Requires-Dist: omegaconf (==2.3.0) ; extra == 'image'
+Requires-Dist: onnx (==1.15.0) ; extra == 'image'
+Requires-Dist: onnxruntime (==1.15.1) ; extra == 'image'
+Requires-Dist: opencv-python (==4.8.0.76) ; extra == 'image'
+Requires-Dist: packaging (==23.2) ; extra == 'image'
+Requires-Dist: pandas (==2.2.0) ; extra == 'image'
+Requires-Dist: pdf2image (==1.17.0) ; extra == 'image'
+Requires-Dist: pdfminer-six (==20221105) ; extra == 'image'
+Requires-Dist: pdfplumber (==0.10.4) ; extra == 'image'
+Requires-Dist: pikepdf (==8.11.0) ; extra == 'image'
+Requires-Dist: pillow (==10.2.0) ; extra == 'image'
+Requires-Dist: pillow-heif (==0.15.0) ; extra == 'image'
+Requires-Dist: portalocker (==2.8.2) ; extra == 'image'
+Requires-Dist: protobuf (==4.23.4) ; extra == 'image'
+Requires-Dist: pycocotools (==2.0.7) ; extra == 'image'
+Requires-Dist: pycparser (==2.21) ; extra == 'image'
+Requires-Dist: pyparsing (==3.0.9) ; extra == 'image'
+Requires-Dist: pypdf (==4.0.1) ; extra == 'image'
+Requires-Dist: pypdfium2 (==4.27.0) ; extra == 'image'
+Requires-Dist: pytesseract (==0.3.10) ; extra == 'image'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'image'
+Requires-Dist: python-multipart (==0.0.9) ; extra == 'image'
+Requires-Dist: pytz (==2024.1) ; extra == 'image'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'image'
+Requires-Dist: rapidfuzz (==3.6.1) ; extra == 'image'
+Requires-Dist: regex (==2023.12.25) ; extra == 'image'
+Requires-Dist: requests (==2.31.0) ; extra == 'image'
+Requires-Dist: safetensors (==0.3.2) ; extra == 'image'
+Requires-Dist: scipy (==1.10.1) ; extra == 'image'
+Requires-Dist: six (==1.16.0) ; extra == 'image'
+Requires-Dist: sympy (==1.12) ; extra == 'image'
+Requires-Dist: timm (==0.9.12) ; extra == 'image'
+Requires-Dist: tokenizers (==0.15.2) ; extra == 'image'
+Requires-Dist: torch (==2.2.0) ; extra == 'image'
+Requires-Dist: torchvision (==0.17.0) ; extra == 'image'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'image'
+Requires-Dist: transformers (==4.37.1) ; extra == 'image'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'image'
+Requires-Dist: tzdata (==2024.1) ; extra == 'image'
+Requires-Dist: unstructured-inference (==0.7.25) ; extra == 'image'
+Requires-Dist: unstructured-pytesseract (==0.3.12) ; extra == 'image'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'image'
+Requires-Dist: wrapt (==1.16.0) ; extra == 'image'
+Requires-Dist: zipp (==3.17.0) ; extra == 'image'
+Provides-Extra: jira
+Requires-Dist: atlassian-python-api (==3.41.10) ; extra == 'jira'
+Requires-Dist: beautifulsoup4 (==4.12.3) ; extra == 'jira'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'jira'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'jira'
+Requires-Dist: deprecated (==1.2.14) ; extra == 'jira'
+Requires-Dist: idna (==3.6) ; extra == 'jira'
+Requires-Dist: jmespath (==1.0.1) ; extra == 'jira'
+Requires-Dist: oauthlib (==3.2.2) ; extra == 'jira'
+Requires-Dist: requests (==2.31.0) ; extra == 'jira'
+Requires-Dist: requests-oauthlib (==1.3.1) ; extra == 'jira'
+Requires-Dist: six (==1.16.0) ; extra == 'jira'
+Requires-Dist: soupsieve (==2.5) ; extra == 'jira'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'jira'
+Requires-Dist: wrapt (==1.16.0) ; extra == 'jira'
+Provides-Extra: local-inference
+Requires-Dist: pillow (==10.2.0) ; extra == 'local-inference'
+Requires-Dist: flatbuffers (==23.5.26) ; extra == 'local-inference'
+Requires-Dist: filelock (==3.13.1) ; extra == 'local-inference'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'local-inference'
+Requires-Dist: deprecated (==1.2.14) ; extra == 'local-inference'
+Requires-Dist: et-xmlfile (==1.1.0) ; extra == 'local-inference'
+Requires-Dist: cycler (==0.12.1) ; extra == 'local-inference'
+Requires-Dist: pypandoc (==1.12) ; extra == 'local-inference'
+Requires-Dist: fonttools (==4.49.0) ; extra == 'local-inference'
+Requires-Dist: portalocker (==2.8.2) ; extra == 'local-inference'
+Requires-Dist: omegaconf (==2.3.0) ; extra == 'local-inference'
+Requires-Dist: xlsxwriter (==3.1.9) ; extra == 'local-inference'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'local-inference'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'local-inference'
+Requires-Dist: unstructured-inference (==0.7.25) ; extra == 'local-inference'
+Requires-Dist: pypdfium2 (==4.27.0) ; extra == 'local-inference'
+Requires-Dist: torchvision (==0.17.0) ; extra == 'local-inference'
+Requires-Dist: pikepdf (==8.11.0) ; extra == 'local-inference'
+Requires-Dist: kiwisolver (==1.4.5) ; extra == 'local-inference'
+Requires-Dist: coloredlogs (==15.0.1) ; extra == 'local-inference'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'local-inference'
+Requires-Dist: pillow-heif (==0.15.0) ; extra == 'local-inference'
+Requires-Dist: torch (==2.2.0) ; extra == 'local-inference'
+Requires-Dist: markupsafe (==2.1.5) ; extra == 'local-inference'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'local-inference'
+Requires-Dist: idna (==3.6) ; extra == 'local-inference'
+Requires-Dist: antlr4-python3-runtime (==4.9.3) ; extra == 'local-inference'
+Requires-Dist: python-multipart (==0.0.9) ; extra == 'local-inference'
+Requires-Dist: pytz (==2024.1) ; extra == 'local-inference'
+Requires-Dist: cffi (==1.16.0) ; extra == 'local-inference'
+Requires-Dist: unstructured-pytesseract (==0.3.12) ; extra == 'local-inference'
+Requires-Dist: effdet (==0.4.1) ; extra == 'local-inference'
+Requires-Dist: wrapt (==1.16.0) ; extra == 'local-inference'
+Requires-Dist: numpy (==1.26.4) ; extra == 'local-inference'
+Requires-Dist: xlrd (==2.0.1) ; extra == 'local-inference'
+Requires-Dist: pypdf (==4.0.1) ; extra == 'local-inference'
+Requires-Dist: pycocotools (==2.0.7) ; extra == 'local-inference'
+Requires-Dist: regex (==2023.12.25) ; extra == 'local-inference'
+Requires-Dist: pandas (==2.2.0) ; extra == 'local-inference'
+Requires-Dist: matplotlib (==3.7.2) ; extra == 'local-inference'
+Requires-Dist: python-pptx (==0.6.23) ; extra == 'local-inference'
+Requires-Dist: mpmath (==1.3.0) ; extra == 'local-inference'
+Requires-Dist: python-docx (==1.1.0) ; extra == 'local-inference'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'local-inference'
+Requires-Dist: iopath (==0.1.10) ; extra == 'local-inference'
+Requires-Dist: packaging (==23.2) ; extra == 'local-inference'
+Requires-Dist: olefile (==0.47) ; extra == 'local-inference'
+Requires-Dist: humanfriendly (==10.0) ; extra == 'local-inference'
+Requires-Dist: importlib-resources (==6.1.1) ; extra == 'local-inference'
+Requires-Dist: pyparsing (==3.0.9) ; extra == 'local-inference'
+Requires-Dist: pytesseract (==0.3.10) ; extra == 'local-inference'
+Requires-Dist: sympy (==1.12) ; extra == 'local-inference'
+Requires-Dist: jinja2 (==3.1.3) ; extra == 'local-inference'
+Requires-Dist: markdown (==3.5.2) ; extra == 'local-inference'
+Requires-Dist: timm (==0.9.12) ; extra == 'local-inference'
+Requires-Dist: huggingface-hub (==0.20.3) ; extra == 'local-inference'
+Requires-Dist: scipy (==1.10.1) ; extra == 'local-inference'
+Requires-Dist: six (==1.16.0) ; extra == 'local-inference'
+Requires-Dist: pdf2image (==1.17.0) ; extra == 'local-inference'
+Requires-Dist: tzdata (==2024.1) ; extra == 'local-inference'
+Requires-Dist: pycparser (==2.21) ; extra == 'local-inference'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'local-inference'
+Requires-Dist: opencv-python (==4.8.0.76) ; extra == 'local-inference'
+Requires-Dist: rapidfuzz (==3.6.1) ; extra == 'local-inference'
+Requires-Dist: transformers (==4.37.1) ; extra == 'local-inference'
+Requires-Dist: safetensors (==0.3.2) ; extra == 'local-inference'
+Requires-Dist: importlib-metadata (==7.0.1) ; extra == 'local-inference'
+Requires-Dist: onnxruntime (==1.15.1) ; extra == 'local-inference'
+Requires-Dist: zipp (==3.17.0) ; extra == 'local-inference'
+Requires-Dist: contourpy (==1.2.0) ; extra == 'local-inference'
+Requires-Dist: msg-parser (==1.2.0) ; extra == 'local-inference'
+Requires-Dist: tokenizers (==0.15.2) ; extra == 'local-inference'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'local-inference'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'local-inference'
+Requires-Dist: protobuf (==4.23.4) ; extra == 'local-inference'
+Requires-Dist: requests (==2.31.0) ; extra == 'local-inference'
+Requires-Dist: pdfminer-six (==20221105) ; extra == 'local-inference'
+Requires-Dist: lxml (==5.1.0) ; extra == 'local-inference'
+Requires-Dist: networkx (==3.2.1) ; extra == 'local-inference'
+Requires-Dist: layoutparser[layoutmodels,tesseract] (==0.3.4) ; extra == 'local-inference'
+Requires-Dist: openpyxl (==3.1.2) ; extra == 'local-inference'
+Requires-Dist: onnx (==1.15.0) ; extra == 'local-inference'
+Requires-Dist: pdfplumber (==0.10.4) ; extra == 'local-inference'
+Provides-Extra: md
+Requires-Dist: importlib-metadata (==7.0.1) ; extra == 'md'
+Requires-Dist: markdown (==3.5.2) ; extra == 'md'
+Requires-Dist: zipp (==3.17.0) ; extra == 'md'
+Provides-Extra: mongodb
+Requires-Dist: dnspython (==2.5.0) ; extra == 'mongodb'
+Requires-Dist: pymongo (==4.6.1) ; extra == 'mongodb'
+Provides-Extra: msg
+Requires-Dist: msg-parser (==1.2.0) ; extra == 'msg'
+Requires-Dist: olefile (==0.47) ; extra == 'msg'
+Provides-Extra: notion
+Requires-Dist: anyio (==3.7.1) ; extra == 'notion'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'notion'
+Requires-Dist: exceptiongroup (==1.2.0) ; extra == 'notion'
+Requires-Dist: h11 (==0.14.0) ; extra == 'notion'
+Requires-Dist: htmlbuilder (==1.0.0) ; extra == 'notion'
+Requires-Dist: httpcore (==1.0.3) ; extra == 'notion'
+Requires-Dist: httpx (==0.26.0) ; extra == 'notion'
+Requires-Dist: idna (==3.6) ; extra == 'notion'
+Requires-Dist: notion-client (==2.2.1) ; extra == 'notion'
+Requires-Dist: sniffio (==1.3.0) ; extra == 'notion'
+Provides-Extra: odt
+Requires-Dist: lxml (==5.1.0) ; extra == 'odt'
+Requires-Dist: pypandoc (==1.12) ; extra == 'odt'
+Requires-Dist: python-docx (==1.1.0) ; extra == 'odt'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'odt'
+Provides-Extra: onedrive
+Requires-Dist: beautifulsoup4 (==4.12.3) ; extra == 'onedrive'
+Requires-Dist: bs4 (==0.0.2) ; extra == 'onedrive'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'onedrive'
+Requires-Dist: cffi (==1.16.0) ; extra == 'onedrive'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'onedrive'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'onedrive'
+Requires-Dist: idna (==3.6) ; extra == 'onedrive'
+Requires-Dist: msal (==1.26.0) ; extra == 'onedrive'
+Requires-Dist: office365-rest-python-client (==2.4.2) ; extra == 'onedrive'
+Requires-Dist: pycparser (==2.21) ; extra == 'onedrive'
+Requires-Dist: pyjwt[crypto] (==2.8.0) ; extra == 'onedrive'
+Requires-Dist: pytz (==2024.1) ; extra == 'onedrive'
+Requires-Dist: requests (==2.31.0) ; extra == 'onedrive'
+Requires-Dist: soupsieve (==2.5) ; extra == 'onedrive'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'onedrive'
+Provides-Extra: openai
+Requires-Dist: aiohttp (==3.9.3) ; extra == 'openai'
+Requires-Dist: aiosignal (==1.3.1) ; extra == 'openai'
+Requires-Dist: anyio (==3.7.1) ; extra == 'openai'
+Requires-Dist: async-timeout (==4.0.3) ; extra == 'openai'
+Requires-Dist: attrs (==23.2.0) ; extra == 'openai'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'openai'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'openai'
+Requires-Dist: dataclasses-json (==0.6.4) ; extra == 'openai'
+Requires-Dist: distro (==1.9.0) ; extra == 'openai'
+Requires-Dist: exceptiongroup (==1.2.0) ; extra == 'openai'
+Requires-Dist: frozenlist (==1.4.1) ; extra == 'openai'
+Requires-Dist: h11 (==0.14.0) ; extra == 'openai'
+Requires-Dist: httpcore (==1.0.3) ; extra == 'openai'
+Requires-Dist: httpx (==0.26.0) ; extra == 'openai'
+Requires-Dist: idna (==3.6) ; extra == 'openai'
+Requires-Dist: jsonpatch (==1.33) ; extra == 'openai'
+Requires-Dist: jsonpointer (==2.4) ; extra == 'openai'
+Requires-Dist: langchain-community (==0.0.20) ; extra == 'openai'
+Requires-Dist: langchain-core (==0.1.23) ; extra == 'openai'
+Requires-Dist: langsmith (==0.0.87) ; extra == 'openai'
+Requires-Dist: marshmallow (==3.20.2) ; extra == 'openai'
+Requires-Dist: multidict (==6.0.5) ; extra == 'openai'
+Requires-Dist: mypy-extensions (==1.0.0) ; extra == 'openai'
+Requires-Dist: numpy (==1.26.4) ; extra == 'openai'
+Requires-Dist: openai (==1.12.0) ; extra == 'openai'
+Requires-Dist: packaging (==23.2) ; extra == 'openai'
+Requires-Dist: pydantic (==1.10.14) ; extra == 'openai'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'openai'
+Requires-Dist: regex (==2023.12.25) ; extra == 'openai'
+Requires-Dist: requests (==2.31.0) ; extra == 'openai'
+Requires-Dist: sniffio (==1.3.0) ; extra == 'openai'
+Requires-Dist: sqlalchemy (==2.0.27) ; extra == 'openai'
+Requires-Dist: tenacity (==8.2.3) ; extra == 'openai'
+Requires-Dist: tiktoken (==0.6.0) ; extra == 'openai'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'openai'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'openai'
+Requires-Dist: typing-inspect (==0.9.0) ; extra == 'openai'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'openai'
+Requires-Dist: yarl (==1.9.4) ; extra == 'openai'
+Provides-Extra: opensearch
+Requires-Dist: certifi (==2024.2.2) ; extra == 'opensearch'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'opensearch'
+Requires-Dist: idna (==3.6) ; extra == 'opensearch'
+Requires-Dist: opensearch-py (==2.4.2) ; extra == 'opensearch'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'opensearch'
+Requires-Dist: requests (==2.31.0) ; extra == 'opensearch'
+Requires-Dist: six (==1.16.0) ; extra == 'opensearch'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'opensearch'
+Provides-Extra: org
+Requires-Dist: pypandoc (==1.12) ; extra == 'org'
+Provides-Extra: outlook
+Requires-Dist: certifi (==2024.2.2) ; extra == 'outlook'
+Requires-Dist: cffi (==1.16.0) ; extra == 'outlook'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'outlook'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'outlook'
+Requires-Dist: idna (==3.6) ; extra == 'outlook'
+Requires-Dist: msal (==1.26.0) ; extra == 'outlook'
+Requires-Dist: office365-rest-python-client (==2.4.2) ; extra == 'outlook'
+Requires-Dist: pycparser (==2.21) ; extra == 'outlook'
+Requires-Dist: pyjwt[crypto] (==2.8.0) ; extra == 'outlook'
+Requires-Dist: pytz (==2024.1) ; extra == 'outlook'
+Requires-Dist: requests (==2.31.0) ; extra == 'outlook'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'outlook'
+Provides-Extra: paddleocr
+Requires-Dist: attrdict (==2.0.1) ; extra == 'paddleocr'
+Requires-Dist: babel (==2.14.0) ; extra == 'paddleocr'
+Requires-Dist: bce-python-sdk (==0.9.4) ; extra == 'paddleocr'
+Requires-Dist: blinker (==1.7.0) ; extra == 'paddleocr'
+Requires-Dist: cachetools (==5.3.2) ; extra == 'paddleocr'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'paddleocr'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'paddleocr'
+Requires-Dist: click (==8.1.7) ; extra == 'paddleocr'
+Requires-Dist: contourpy (==1.2.0) ; extra == 'paddleocr'
+Requires-Dist: cssselect (==1.2.0) ; extra == 'paddleocr'
+Requires-Dist: cssutils (==2.9.0) ; extra == 'paddleocr'
+Requires-Dist: cycler (==0.12.1) ; extra == 'paddleocr'
+Requires-Dist: cython (==3.0.8) ; extra == 'paddleocr'
+Requires-Dist: et-xmlfile (==1.1.0) ; extra == 'paddleocr'
+Requires-Dist: flask (==3.0.2) ; extra == 'paddleocr'
+Requires-Dist: flask-babel (==4.0.0) ; extra == 'paddleocr'
+Requires-Dist: fonttools (==4.49.0) ; extra == 'paddleocr'
+Requires-Dist: future (==0.18.3) ; extra == 'paddleocr'
+Requires-Dist: idna (==3.6) ; extra == 'paddleocr'
+Requires-Dist: imageio (==2.34.0) ; extra == 'paddleocr'
+Requires-Dist: imgaug (==0.4.0) ; extra == 'paddleocr'
+Requires-Dist: importlib-metadata (==7.0.1) ; extra == 'paddleocr'
+Requires-Dist: importlib-resources (==6.1.1) ; extra == 'paddleocr'
+Requires-Dist: itsdangerous (==2.1.2) ; extra == 'paddleocr'
+Requires-Dist: jinja2 (==3.1.3) ; extra == 'paddleocr'
+Requires-Dist: kiwisolver (==1.4.5) ; extra == 'paddleocr'
+Requires-Dist: lanms-neo (==1.0.2) ; extra == 'paddleocr'
+Requires-Dist: lazy-loader (==0.3) ; extra == 'paddleocr'
+Requires-Dist: lmdb (==1.4.1) ; extra == 'paddleocr'
+Requires-Dist: lxml (==5.1.0) ; extra == 'paddleocr'
+Requires-Dist: markupsafe (==2.1.5) ; extra == 'paddleocr'
+Requires-Dist: matplotlib (==3.7.2) ; extra == 'paddleocr'
+Requires-Dist: networkx (==3.2.1) ; extra == 'paddleocr'
+Requires-Dist: numpy (==1.26.4) ; extra == 'paddleocr'
+Requires-Dist: opencv-contrib-python (==4.8.0.76) ; extra == 'paddleocr'
+Requires-Dist: opencv-python (==4.8.0.76) ; extra == 'paddleocr'
+Requires-Dist: openpyxl (==3.1.2) ; extra == 'paddleocr'
+Requires-Dist: packaging (==23.2) ; extra == 'paddleocr'
+Requires-Dist: pandas (==2.2.0) ; extra == 'paddleocr'
+Requires-Dist: pdf2image (==1.17.0) ; extra == 'paddleocr'
+Requires-Dist: pillow (==10.2.0) ; extra == 'paddleocr'
+Requires-Dist: polygon3 (==3.0.9.1) ; extra == 'paddleocr'
+Requires-Dist: premailer (==3.10.0) ; extra == 'paddleocr'
+Requires-Dist: protobuf (==4.23.4) ; extra == 'paddleocr'
+Requires-Dist: psutil (==5.9.8) ; extra == 'paddleocr'
+Requires-Dist: pyclipper (==1.3.0.post5) ; extra == 'paddleocr'
+Requires-Dist: pycryptodome (==3.20.0) ; extra == 'paddleocr'
+Requires-Dist: pyparsing (==3.0.9) ; extra == 'paddleocr'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'paddleocr'
+Requires-Dist: pytz (==2024.1) ; extra == 'paddleocr'
+Requires-Dist: rapidfuzz (==3.6.1) ; extra == 'paddleocr'
+Requires-Dist: rarfile (==4.1) ; extra == 'paddleocr'
+Requires-Dist: requests (==2.31.0) ; extra == 'paddleocr'
+Requires-Dist: scikit-image (==0.22.0) ; extra == 'paddleocr'
+Requires-Dist: scipy (==1.10.1) ; extra == 'paddleocr'
+Requires-Dist: shapely (==2.0.2) ; extra == 'paddleocr'
+Requires-Dist: six (==1.16.0) ; extra == 'paddleocr'
+Requires-Dist: tifffile (==2024.2.12) ; extra == 'paddleocr'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'paddleocr'
+Requires-Dist: tzdata (==2024.1) ; extra == 'paddleocr'
+Requires-Dist: unstructured-paddleocr (==2.6.1.3) ; extra == 'paddleocr'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'paddleocr'
+Requires-Dist: visualdl (==2.5.3) ; extra == 'paddleocr'
+Requires-Dist: werkzeug (==3.0.1) ; extra == 'paddleocr'
+Requires-Dist: zipp (==3.17.0) ; extra == 'paddleocr'
+Provides-Extra: pdf
+Requires-Dist: antlr4-python3-runtime (==4.9.3) ; extra == 'pdf'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'pdf'
+Requires-Dist: cffi (==1.16.0) ; extra == 'pdf'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'pdf'
+Requires-Dist: coloredlogs (==15.0.1) ; extra == 'pdf'
+Requires-Dist: contourpy (==1.2.0) ; extra == 'pdf'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'pdf'
+Requires-Dist: cycler (==0.12.1) ; extra == 'pdf'
+Requires-Dist: deprecated (==1.2.14) ; extra == 'pdf'
+Requires-Dist: effdet (==0.4.1) ; extra == 'pdf'
+Requires-Dist: filelock (==3.13.1) ; extra == 'pdf'
+Requires-Dist: flatbuffers (==23.5.26) ; extra == 'pdf'
+Requires-Dist: fonttools (==4.49.0) ; extra == 'pdf'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'pdf'
+Requires-Dist: huggingface-hub (==0.20.3) ; extra == 'pdf'
+Requires-Dist: humanfriendly (==10.0) ; extra == 'pdf'
+Requires-Dist: idna (==3.6) ; extra == 'pdf'
+Requires-Dist: importlib-resources (==6.1.1) ; extra == 'pdf'
+Requires-Dist: iopath (==0.1.10) ; extra == 'pdf'
+Requires-Dist: jinja2 (==3.1.3) ; extra == 'pdf'
+Requires-Dist: kiwisolver (==1.4.5) ; extra == 'pdf'
+Requires-Dist: layoutparser[layoutmodels,tesseract] (==0.3.4) ; extra == 'pdf'
+Requires-Dist: lxml (==5.1.0) ; extra == 'pdf'
+Requires-Dist: markupsafe (==2.1.5) ; extra == 'pdf'
+Requires-Dist: matplotlib (==3.7.2) ; extra == 'pdf'
+Requires-Dist: mpmath (==1.3.0) ; extra == 'pdf'
+Requires-Dist: networkx (==3.2.1) ; extra == 'pdf'
+Requires-Dist: numpy (==1.26.4) ; extra == 'pdf'
+Requires-Dist: omegaconf (==2.3.0) ; extra == 'pdf'
+Requires-Dist: onnx (==1.15.0) ; extra == 'pdf'
+Requires-Dist: onnxruntime (==1.15.1) ; extra == 'pdf'
+Requires-Dist: opencv-python (==4.8.0.76) ; extra == 'pdf'
+Requires-Dist: packaging (==23.2) ; extra == 'pdf'
+Requires-Dist: pandas (==2.2.0) ; extra == 'pdf'
+Requires-Dist: pdf2image (==1.17.0) ; extra == 'pdf'
+Requires-Dist: pdfminer-six (==20221105) ; extra == 'pdf'
+Requires-Dist: pdfplumber (==0.10.4) ; extra == 'pdf'
+Requires-Dist: pikepdf (==8.11.0) ; extra == 'pdf'
+Requires-Dist: pillow (==10.2.0) ; extra == 'pdf'
+Requires-Dist: pillow-heif (==0.15.0) ; extra == 'pdf'
+Requires-Dist: portalocker (==2.8.2) ; extra == 'pdf'
+Requires-Dist: protobuf (==4.23.4) ; extra == 'pdf'
+Requires-Dist: pycocotools (==2.0.7) ; extra == 'pdf'
+Requires-Dist: pycparser (==2.21) ; extra == 'pdf'
+Requires-Dist: pyparsing (==3.0.9) ; extra == 'pdf'
+Requires-Dist: pypdf (==4.0.1) ; extra == 'pdf'
+Requires-Dist: pypdfium2 (==4.27.0) ; extra == 'pdf'
+Requires-Dist: pytesseract (==0.3.10) ; extra == 'pdf'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'pdf'
+Requires-Dist: python-multipart (==0.0.9) ; extra == 'pdf'
+Requires-Dist: pytz (==2024.1) ; extra == 'pdf'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'pdf'
+Requires-Dist: rapidfuzz (==3.6.1) ; extra == 'pdf'
+Requires-Dist: regex (==2023.12.25) ; extra == 'pdf'
+Requires-Dist: requests (==2.31.0) ; extra == 'pdf'
+Requires-Dist: safetensors (==0.3.2) ; extra == 'pdf'
+Requires-Dist: scipy (==1.10.1) ; extra == 'pdf'
+Requires-Dist: six (==1.16.0) ; extra == 'pdf'
+Requires-Dist: sympy (==1.12) ; extra == 'pdf'
+Requires-Dist: timm (==0.9.12) ; extra == 'pdf'
+Requires-Dist: tokenizers (==0.15.2) ; extra == 'pdf'
+Requires-Dist: torch (==2.2.0) ; extra == 'pdf'
+Requires-Dist: torchvision (==0.17.0) ; extra == 'pdf'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'pdf'
+Requires-Dist: transformers (==4.37.1) ; extra == 'pdf'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'pdf'
+Requires-Dist: tzdata (==2024.1) ; extra == 'pdf'
+Requires-Dist: unstructured-inference (==0.7.25) ; extra == 'pdf'
+Requires-Dist: unstructured-pytesseract (==0.3.12) ; extra == 'pdf'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'pdf'
+Requires-Dist: wrapt (==1.16.0) ; extra == 'pdf'
+Requires-Dist: zipp (==3.17.0) ; extra == 'pdf'
+Provides-Extra: pinecone
+Requires-Dist: certifi (==2024.2.2) ; extra == 'pinecone'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'pinecone'
+Requires-Dist: dnspython (==2.5.0) ; extra == 'pinecone'
+Requires-Dist: idna (==3.6) ; extra == 'pinecone'
+Requires-Dist: loguru (==0.7.2) ; extra == 'pinecone'
+Requires-Dist: numpy (==1.26.4) ; extra == 'pinecone'
+Requires-Dist: pinecone-client (==2.2.4) ; extra == 'pinecone'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'pinecone'
+Requires-Dist: pyyaml (==6.0.1) ; extra == 'pinecone'
+Requires-Dist: requests (==2.31.0) ; extra == 'pinecone'
+Requires-Dist: six (==1.16.0) ; extra == 'pinecone'
+Requires-Dist: tqdm (==4.66.2) ; extra == 'pinecone'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'pinecone'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'pinecone'
+Provides-Extra: postgres
+Requires-Dist: psycopg2-binary (==2.9.9) ; extra == 'postgres'
+Provides-Extra: ppt
+Requires-Dist: lxml (==5.1.0) ; extra == 'ppt'
+Requires-Dist: pillow (==10.2.0) ; extra == 'ppt'
+Requires-Dist: python-pptx (==0.6.23) ; extra == 'ppt'
+Requires-Dist: xlsxwriter (==3.1.9) ; extra == 'ppt'
+Provides-Extra: pptx
+Requires-Dist: lxml (==5.1.0) ; extra == 'pptx'
+Requires-Dist: pillow (==10.2.0) ; extra == 'pptx'
+Requires-Dist: python-pptx (==0.6.23) ; extra == 'pptx'
+Requires-Dist: xlsxwriter (==3.1.9) ; extra == 'pptx'
+Provides-Extra: qdrant
+Requires-Dist: anyio (==3.7.1) ; extra == 'qdrant'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'qdrant'
+Requires-Dist: exceptiongroup (==1.2.0) ; extra == 'qdrant'
+Requires-Dist: grpcio (==1.60.1) ; extra == 'qdrant'
+Requires-Dist: grpcio-tools (==1.60.1) ; extra == 'qdrant'
+Requires-Dist: h11 (==0.14.0) ; extra == 'qdrant'
+Requires-Dist: h2 (==4.1.0) ; extra == 'qdrant'
+Requires-Dist: hpack (==4.0.0) ; extra == 'qdrant'
+Requires-Dist: httpcore (==1.0.3) ; extra == 'qdrant'
+Requires-Dist: httpx[http2] (==0.26.0) ; extra == 'qdrant'
+Requires-Dist: hyperframe (==6.0.1) ; extra == 'qdrant'
+Requires-Dist: idna (==3.6) ; extra == 'qdrant'
+Requires-Dist: numpy (==1.26.4) ; extra == 'qdrant'
+Requires-Dist: portalocker (==2.8.2) ; extra == 'qdrant'
+Requires-Dist: protobuf (==4.23.4) ; extra == 'qdrant'
+Requires-Dist: pydantic (==1.10.14) ; extra == 'qdrant'
+Requires-Dist: qdrant-client (==1.7.3) ; extra == 'qdrant'
+Requires-Dist: sniffio (==1.3.0) ; extra == 'qdrant'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 'qdrant'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'qdrant'
+Provides-Extra: reddit
+Requires-Dist: certifi (==2024.2.2) ; extra == 'reddit'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'reddit'
+Requires-Dist: idna (==3.6) ; extra == 'reddit'
+Requires-Dist: praw (==7.7.1) ; extra == 'reddit'
+Requires-Dist: prawcore (==2.4.0) ; extra == 'reddit'
+Requires-Dist: requests (==2.31.0) ; extra == 'reddit'
+Requires-Dist: update-checker (==0.18.0) ; extra == 'reddit'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'reddit'
+Requires-Dist: websocket-client (==1.7.0) ; extra == 'reddit'
+Provides-Extra: rst
+Requires-Dist: pypandoc (==1.12) ; extra == 'rst'
+Provides-Extra: rtf
+Requires-Dist: pypandoc (==1.12) ; extra == 'rtf'
+Provides-Extra: s3
+Requires-Dist: aiobotocore (==2.12.1) ; extra == 's3'
+Requires-Dist: aiohttp (==3.9.3) ; extra == 's3'
+Requires-Dist: aioitertools (==0.11.0) ; extra == 's3'
+Requires-Dist: aiosignal (==1.3.1) ; extra == 's3'
+Requires-Dist: async-timeout (==4.0.3) ; extra == 's3'
+Requires-Dist: attrs (==23.2.0) ; extra == 's3'
+Requires-Dist: botocore (==1.34.51) ; extra == 's3'
+Requires-Dist: frozenlist (==1.4.1) ; extra == 's3'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 's3'
+Requires-Dist: idna (==3.6) ; extra == 's3'
+Requires-Dist: jmespath (==1.0.1) ; extra == 's3'
+Requires-Dist: multidict (==6.0.5) ; extra == 's3'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 's3'
+Requires-Dist: s3fs (==2024.2.0) ; extra == 's3'
+Requires-Dist: six (==1.16.0) ; extra == 's3'
+Requires-Dist: typing-extensions (==4.9.0) ; extra == 's3'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 's3'
+Requires-Dist: wrapt (==1.16.0) ; extra == 's3'
+Requires-Dist: yarl (==1.9.4) ; extra == 's3'
+Provides-Extra: salesforce
+Requires-Dist: attrs (==23.2.0) ; extra == 'salesforce'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'salesforce'
+Requires-Dist: cffi (==1.16.0) ; extra == 'salesforce'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'salesforce'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'salesforce'
+Requires-Dist: idna (==3.6) ; extra == 'salesforce'
+Requires-Dist: isodate (==0.6.1) ; extra == 'salesforce'
+Requires-Dist: lxml (==5.1.0) ; extra == 'salesforce'
+Requires-Dist: more-itertools (==10.2.0) ; extra == 'salesforce'
+Requires-Dist: pendulum (==3.0.0) ; extra == 'salesforce'
+Requires-Dist: platformdirs (==3.10.0) ; extra == 'salesforce'
+Requires-Dist: pycparser (==2.21) ; extra == 'salesforce'
+Requires-Dist: pyjwt (==2.8.0) ; extra == 'salesforce'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'salesforce'
+Requires-Dist: pytz (==2024.1) ; extra == 'salesforce'
+Requires-Dist: requests (==2.31.0) ; extra == 'salesforce'
+Requires-Dist: requests-file (==2.0.0) ; extra == 'salesforce'
+Requires-Dist: requests-toolbelt (==1.0.0) ; extra == 'salesforce'
+Requires-Dist: simple-salesforce (==1.12.5) ; extra == 'salesforce'
+Requires-Dist: six (==1.16.0) ; extra == 'salesforce'
+Requires-Dist: time-machine (==2.13.0) ; extra == 'salesforce'
+Requires-Dist: tzdata (==2024.1) ; extra == 'salesforce'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'salesforce'
+Requires-Dist: zeep (==4.2.1) ; extra == 'salesforce'
+Provides-Extra: sftp
+Requires-Dist: bcrypt (==4.1.2) ; extra == 'sftp'
+Requires-Dist: cffi (==1.16.0) ; extra == 'sftp'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'sftp'
+Requires-Dist: fsspec (==2024.2.0) ; extra == 'sftp'
+Requires-Dist: paramiko (==3.4.0) ; extra == 'sftp'
+Requires-Dist: pycparser (==2.21) ; extra == 'sftp'
+Requires-Dist: pynacl (==1.5.0) ; extra == 'sftp'
+Provides-Extra: sharepoint
+Requires-Dist: certifi (==2024.2.2) ; extra == 'sharepoint'
+Requires-Dist: cffi (==1.16.0) ; extra == 'sharepoint'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'sharepoint'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'sharepoint'
+Requires-Dist: idna (==3.6) ; extra == 'sharepoint'
+Requires-Dist: msal (==1.26.0) ; extra == 'sharepoint'
+Requires-Dist: office365-rest-python-client (==2.4.2) ; extra == 'sharepoint'
+Requires-Dist: pycparser (==2.21) ; extra == 'sharepoint'
+Requires-Dist: pyjwt[crypto] (==2.8.0) ; extra == 'sharepoint'
+Requires-Dist: pytz (==2024.1) ; extra == 'sharepoint'
+Requires-Dist: requests (==2.31.0) ; extra == 'sharepoint'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'sharepoint'
+Provides-Extra: slack
+Requires-Dist: slack-sdk (==3.27.0) ; extra == 'slack'
+Provides-Extra: tsv
+Requires-Dist: numpy (==1.26.4) ; extra == 'tsv'
+Requires-Dist: pandas (==2.2.0) ; extra == 'tsv'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'tsv'
+Requires-Dist: pytz (==2024.1) ; extra == 'tsv'
+Requires-Dist: six (==1.16.0) ; extra == 'tsv'
+Requires-Dist: tzdata (==2024.1) ; extra == 'tsv'
+Provides-Extra: weaviate
+Requires-Dist: authlib (==1.3.0) ; extra == 'weaviate'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'weaviate'
+Requires-Dist: cffi (==1.16.0) ; extra == 'weaviate'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'weaviate'
+Requires-Dist: cryptography (==42.0.2) ; extra == 'weaviate'
+Requires-Dist: idna (==3.6) ; extra == 'weaviate'
+Requires-Dist: pycparser (==2.21) ; extra == 'weaviate'
+Requires-Dist: requests (==2.31.0) ; extra == 'weaviate'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'weaviate'
+Requires-Dist: validators (==0.22.0) ; extra == 'weaviate'
+Requires-Dist: weaviate-client (==3.26.2) ; extra == 'weaviate'
+Provides-Extra: wikipedia
+Requires-Dist: beautifulsoup4 (==4.12.3) ; extra == 'wikipedia'
+Requires-Dist: certifi (==2024.2.2) ; extra == 'wikipedia'
+Requires-Dist: charset-normalizer (==3.3.2) ; extra == 'wikipedia'
+Requires-Dist: idna (==3.6) ; extra == 'wikipedia'
+Requires-Dist: requests (==2.31.0) ; extra == 'wikipedia'
+Requires-Dist: soupsieve (==2.5) ; extra == 'wikipedia'
+Requires-Dist: urllib3 (==1.26.18) ; extra == 'wikipedia'
+Requires-Dist: wikipedia (==1.4.0) ; extra == 'wikipedia'
+Provides-Extra: xlsx
+Requires-Dist: et-xmlfile (==1.1.0) ; extra == 'xlsx'
+Requires-Dist: networkx (==3.2.1) ; extra == 'xlsx'
+Requires-Dist: numpy (==1.26.4) ; extra == 'xlsx'
+Requires-Dist: openpyxl (==3.1.2) ; extra == 'xlsx'
+Requires-Dist: pandas (==2.2.0) ; extra == 'xlsx'
+Requires-Dist: python-dateutil (==2.8.2) ; extra == 'xlsx'
+Requires-Dist: pytz (==2024.1) ; extra == 'xlsx'
+Requires-Dist: six (==1.16.0) ; extra == 'xlsx'
+Requires-Dist: tzdata (==2024.1) ; extra == 'xlsx'
+Requires-Dist: xlrd (==2.0.1) ; extra == 'xlsx'
+
+<h3 align="center">
+  <img
+    src="https://raw.githubusercontent.com/Unstructured-IO/unstructured/main/img/unstructured_logo.png"
+    height="200"
+  >
+</h3>
+
+<div align="center">
+
+  <a href="https://github.com/Unstructured-IO/unstructured/blob/main/LICENSE.md">![https://pypi.python.org/pypi/unstructured/](https://img.shields.io/pypi/l/unstructured.svg)</a>
+  <a href="https://pypi.python.org/pypi/unstructured/">![https://pypi.python.org/pypi/unstructured/](https://img.shields.io/pypi/pyversions/unstructured.svg)</a>
+  <a href="https://GitHub.com/unstructured-io/unstructured/graphs/contributors">![https://GitHub.com/unstructured-io/unstructured.js/graphs/contributors](https://img.shields.io/github/contributors/unstructured-io/unstructured)</a>
+  <a href="https://github.com/Unstructured-IO/unstructured/blob/main/CODE_OF_CONDUCT.md">![code_of_conduct.md](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg) </a>
+  <a href="https://GitHub.com/unstructured-io/unstructured/releases">![https://GitHub.com/unstructured-io/unstructured.js/releases](https://img.shields.io/github/release/unstructured-io/unstructured)</a>
+  <a href="https://pypi.python.org/pypi/unstructured/">![https://github.com/Naereen/badges/](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)</a>
+  [![Downloads](https://static.pepy.tech/badge/unstructured)](https://pepy.tech/project/unstructured)
+  [![Downloads](https://static.pepy.tech/badge/unstructured/month)](https://pepy.tech/project/unstructured)
+  <a
+   href="https://www.phorm.ai/query?projectId=34efc517-2201-4376-af43-40c4b9da3dc5">
+	<img src="https://img.shields.io/badge/Phorm-Ask_AI-%23F2777A.svg?&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNSIgaGVpZ2h0PSI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGQ9Ik00LjQzIDEuODgyYTEuNDQgMS40NCAwIDAgMS0uMDk4LjQyNmMtLjA1LjEyMy0uMTE1LjIzLS4xOTIuMzIyLS4wNzUuMDktLjE2LjE2NS0uMjU1LjIyNmExLjM1MyAxLjM1MyAwIDAgMS0uNTk1LjIxMmMtLjA5OS4wMTItLjE5Mi4wMTQtLjI3OS4wMDZsLTEuNTkzLS4xNHYtLjQwNmgxLjY1OGMuMDkuMDAxLjE3LS4xNjkuMjQ2LS4xOTFhLjYwMy42MDMgMCAwIDAgLjItLjEwNi41MjkuNTI5IDAgMCAwIC4xMzgtLjE3LjY1NC42NTQgMCAwIDAgLjA2NS0uMjRsLjAyOC0uMzJhLjkzLjkzIDAgMCAwLS4wMzYtLjI0OS41NjcuNTY3IDAgMCAwLS4xMDMtLjIuNTAyLjUwMiAwIDAgMC0uMTY4LS4xMzguNjA4LjYwOCAwIDAgMC0uMjQtLjA2N0wyLjQzNy43MjkgMS42MjUuNjcxYS4zMjIuMzIyIDAgMCAwLS4yMzIuMDU4LjM3NS4zNzUgMCAwIDAtLjExNi4yMzJsLS4xMTYgMS40NS0uMDU4LjY5Ny0uMDU4Ljc1NEwuNzA1IDRsLS4zNTctLjA3OUwuNjAyLjkwNkMuNjE3LjcyNi42NjMuNTc0LjczOS40NTRhLjk1OC45NTggMCAwIDEgLjI3NC0uMjg1Ljk3MS45NzEgMCAwIDEgLjMzNy0uMTRjLjExOS0uMDI2LjIyNy0uMDM0LjMyNS0uMDI2TDMuMjMyLjE2Yy4xNTkuMDE0LjMzNi4wMy40NTkuMDgyYTEuMTczIDEuMTczIDAgMCAxIC41NDUuNDQ3Yy4wNi4wOTQuMTA5LjE5Mi4xNDQuMjkzYTEuMzkyIDEuMzkyIDAgMCAxIC4wNzguNThsLS4wMjkuMzJaIiBmaWxsPSIjRjI3NzdBIi8+CiAgPHBhdGggZD0iTTQuMDgyIDIuMDA3YTEuNDU1IDEuNDU1IDAgMCAxLS4wOTguNDI3Yy0uMDUuMTI0LS4xMTQuMjMyLS4xOTIuMzI0YTEuMTMgMS4xMyAwIDAgMS0uMjU0LjIyNyAxLjM1MyAxLjM1MyAwIDAgMS0uNTk1LjIxNGMtLjEuMDEyLS4xOTMuMDE0LS4yOC4wMDZsLTEuNTYtLjEwOC4wMzQtLjQwNi4wMy0uMzQ4IDEuNTU5LjE1NGMuMDkgMCAuMTczLS4wMS4yNDgtLjAzM2EuNjAzLjYwMyAwIDAgMCAuMi0uMTA2LjUzMi41MzIgMCAwIDAgLjEzOS0uMTcyLjY2LjY2IDAgMCAwIC4wNjQtLjI0MWwuMDI5LS4zMjFhLjk0Ljk0IDAgMCAwLS4wMzYtLjI1LjU3LjU3IDAgMCAwLS4xMDMtLjIwMi41MDIuNTAyIDAgMCAwLS4xNjgtLjEzOC42MDUuNjA1IDAgMCAwLS4yNC0uMDY3TDEuMjczLjgyN2MtLjA5NC0uMDA4LS4xNjguMDEtLjIyMS4wNTUtLjA1My4wNDUtLjA4NC4xMTQtLjA5Mi4yMDZMLjcwNSA0IDAgMy45MzhsLjI1NS0yLjkxMUExLjAxIDEuMDEgMCAwIDEgLjM5My41NzIuOTYyLjk2MiAwIDAgMSAuNjY2LjI4NmEuOTcuOTcgMCAwIDEgLjMzOC0uMTRDMS4xMjIuMTIgMS4yMy4xMSAxLjMyOC4xMTlsMS41OTMuMTRjLjE2LjAxNC4zLjA0Ny40MjMuMWExLjE3IDEuMTcgMCAwIDEgLjU0NS40NDhjLjA2MS4wOTUuMTA5LjE5My4xNDQuMjk1YTEuNDA2IDEuNDA2IDAgMCAxIC4wNzcuNTgzbC0uMDI4LjMyMloiIGZpbGw9IndoaXRlIi8+CiAgPHBhdGggZD0iTTQuMDgyIDIuMDA3YTEuNDU1IDEuNDU1IDAgMCAxLS4wOTguNDI3Yy0uMDUuMTI0LS4xMTQuMjMyLS4xOTIuMzI0YTEuMTMgMS4xMyAwIDAgMS0uMjU0LjIyNyAxLjM1MyAxLjM1MyAwIDAgMS0uNTk1LjIxNGMtLjEuMDEyLS4xOTMuMDE0LS4yOC4wMDZsLTEuNTYtLjEwOC4wMzQtLjQwNi4wMy0uMzQ4IDEuNTU5LjE1NGMuMDkgMCAuMTczLS4wMS4yNDgtLjAzM2EuNjAzLjYwMyAwIDAgMCAuMi0uMTA2LjUzMi41MzIgMCAwIDAgLjEzOS0uMTcyLjY2LjY2IDAgMCAwIC4wNjQtLjI0MWwuMDI5LS4zMjFhLjk0Ljk0IDAgMCAwLS4wMzYtLjI1LjU3LjU3IDAgMCAwLS4xMDMtLjIwMi41MDIuNTAyIDAgMCAwLS4xNjgtLjEzOC42MDUuNjA1IDAgMCAwLS4yNC0uMDY3TDEuMjczLjgyN2MtLjA5NC0uMDA4LS4xNjguMDEtLjIyMS4wNTUtLjA1My4wNDUtLjA4NC4xMTQtLjA5Mi4yMDZMLjcwNSA0IDAgMy45MzhsLjI1NS0yLjkxMUExLjAxIDEuMDEgMCAwIDEgLjM5My41NzIuOTYyLjk2MiAwIDAgMSAuNjY2LjI4NmEuOTcuOTcgMCAwIDEgLjMzOC0uMTRDMS4xMjIuMTIgMS4yMy4xMSAxLjMyOC4xMTlsMS41OTMuMTRjLjE2LjAxNC4zLjA0Ny40MjMuMWExLjE3IDEuMTcgMCAwIDEgLjU0NS40NDhjLjA2MS4wOTUuMTA5LjE5My4xNDQuMjk1YTEuNDA2IDEuNDA2IDAgMCAxIC4wNzcuNTgzbC0uMDI4LjMyMloiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=" />
+   </a>
+
+</div>
+
+<div>
+  <p align="center">
+  <a
+  href="https://short.unstructured.io/pzw05l7">
+    <img src="https://img.shields.io/badge/JOIN US ON SLACK-4A154B?style=for-the-badge&logo=slack&logoColor=white" />
+  </a>
+  <a href="https://www.linkedin.com/company/unstructuredio/">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+</div>
+
+<h2 align="center">
+  <p>Open-Source Pre-Processing Tools for Unstructured Data</p>
+</h2>
+
+The `unstructured` library provides open-source components for ingesting and pre-processing images and text documents, such as PDFs, HTML, Word docs, and [many more](https://unstructured-io.github.io/unstructured/core.html#partitioning). The use cases of `unstructured` revolve around streamlining and optimizing the data processing workflow for LLMs. `unstructured` modular functions and connectors form a cohesive system that simplifies data ingestion and pre-processing, making it adaptable to different platforms and efficient in transforming unstructured data into structured outputs.
+
+<h3 align="center">
+  <p>API Announcement!</p>
+</h3>
+
+We are thrilled to announce our newly launched [Unstructured API](https://unstructured-io.github.io/unstructured/api.html), providing the Unstructured capabilities from `unstructured` as an API. Check out the [`unstructured-api` GitHub repository](https://github.com/Unstructured-IO/unstructured-api) to start making API calls. You’ll also find instructions about how to host your own API version.
+
+While access to the hosted Unstructured API will remain free, API Keys are required to make requests. To prevent disruption, get yours [here](https://unstructured.io/api-key) and start using it today! Check out the [`unstructured-api` README](https://github.com/Unstructured-IO/unstructured-api#--) to start making API calls.</p>
+
+#### :rocket: Beta Feature: Chipper Model
+
+We are releasing the beta version of our Chipper model to deliver superior performance when processing high-resolution, complex documents. To start using the Chipper model in your API request, you can utilize the `hi_res_model_name=chipper` parameter. Please refer to the documentation [here](https://unstructured-io.github.io/unstructured/api.html#beta-version-hi-res-strategy-with-chipper-model).
+
+As the Chipper model is in beta version, we welcome feedback and suggestions. For those interested in testing the Chipper model, we encourage you to connect with us on [Slack community](https://short.unstructured.io/pzw05l7).
+
+## :eight_pointed_black_star: Quick Start
+
+There are several ways to use the `unstructured` library:
+* [Run the library in a container](https://github.com/Unstructured-IO/unstructured#using-the-library-in-a-container) or
+* Install the library
+    1. [Install from PyPI](https://github.com/Unstructured-IO/unstructured#installing-the-library)
+    2. [Install for local development](https://github.com/Unstructured-IO/unstructured#installation-instructions-for-local-development)
+* For installation with `conda` on Windows system, please refer to the [documentation](https://unstructured-io.github.io/unstructured/installing.html#installation-with-conda-on-windows)
+
+### Run the library in a container
+
+The following instructions are intended to help you get up and running using Docker to interact with `unstructured`.
+See [here](https://docs.docker.com/get-docker/) if you don't already have docker installed on your machine.
+
+NOTE: we build multi-platform images to support both x86_64 and Apple silicon hardware. `docker pull` should download the corresponding image for your architecture, but you can specify with `--platform` (e.g. `--platform linux/amd64`) if needed.
+
+We build Docker images for all pushes to `main`. We tag each image with the corresponding short commit hash (e.g. `fbc7a69`) and the application version (e.g. `0.5.5-dev1`). We also tag the most recent image with `latest`. To leverage this, `docker pull` from our image repository.
+
+```bash
+docker pull downloads.unstructured.io/unstructured-io/unstructured:latest
+```
+
+Once pulled, you can create a container from this image and shell to it.
+
+```bash
+# create the container
+docker run -dt --name unstructured downloads.unstructured.io/unstructured-io/unstructured:latest
+
+# this will drop you into a bash shell where the Docker image is running
+docker exec -it unstructured bash
+```
+
+You can also build your own Docker image.
+
+If you only plan on parsing one type of data you can speed up building the image by commenting out some
+of the packages/requirements necessary for other data types. See Dockerfile to know which lines are necessary
+for your use case.
+
+```bash
+make docker-build
+
+# this will drop you into a bash shell where the Docker image is running
+make docker-start-bash
+```
+
+Once in the running container, you can try things directly in Python interpreter's interactive mode.
+```bash
+# this will drop you into a python console so you can run the below partition functions
+python3
+
+>>> from unstructured.partition.pdf import partition_pdf
+>>> elements = partition_pdf(filename="example-docs/layout-parser-paper-fast.pdf")
+
+>>> from unstructured.partition.text import partition_text
+>>> elements = partition_text(filename="example-docs/fake-text.txt")
+```
+
+### Installing the library
+Use the following instructions to get up and running with `unstructured` and test your
+installation.
+
+- Install the Python SDK to support all document types with `pip install "unstructured[all-docs]"`
+  - For plain text files, HTML, XML, JSON and Emails that do not require any extra dependencies, you can run `pip install unstructured`
+  - To process other doc types, you can install the extras required for those documents, such as `pip install "unstructured[docx,pptx]"`
+- Install the following system dependencies if they are not already available on your system.
+  Depending on what document types you're parsing, you may not need all of these.
+    - `libmagic-dev` (filetype detection)
+    - `poppler-utils` (images and PDFs)
+    - `tesseract-ocr` (images and PDFs, install `tesseract-lang` for additional language support)
+    - `libreoffice` (MS Office docs)
+    - `pandoc` (EPUBs, RTFs and Open Office docs). Please note that to handle RTF files, you need version `2.14.2` or newer. Running either `make install-pandoc` or `./scripts/install-pandoc.sh` will install the correct version for you.
+
+- For suggestions on how to install on the Windows and to learn about dependencies for other features, see the
+  installation documentation [here](https://unstructured-io.github.io/unstructured/installing.html).
+
+At this point, you should be able to run the following code:
+
+```python
+from unstructured.partition.auto import partition
+
+elements = partition(filename="example-docs/eml/fake-email.eml")
+print("\n\n".join([str(el) for el in elements]))
+```
+
+### Installation Instructions for Local Development
+
+The following instructions are intended to help you get up and running with `unstructured`
+locally if you are planning to contribute to the project.
+
+* Using `pyenv` to manage virtualenv's is recommended but not necessary
+	* Mac install instructions. See [here](https://github.com/Unstructured-IO/community#mac--homebrew) for more detailed instructions.
+		* `brew install pyenv-virtualenv`
+	  * `pyenv install 3.10`
+  * Linux instructions are available [here](https://github.com/Unstructured-IO/community#linux).
+
+* Create a virtualenv to work in and activate it, e.g. for one named `unstructured`:
+
+	`pyenv  virtualenv 3.10 unstructured` <br />
+	`pyenv activate unstructured`
+
+* Run `make install`
+
+* Optional:
+  * To install models and dependencies for processing images and PDFs locally, run `make install-local-inference`.
+  * For processing image files, `tesseract` is required. See [here](https://tesseract-ocr.github.io/tessdoc/Installation.html) for installation instructions.
+  * For processing PDF files, `tesseract` and `poppler` are required. The [pdf2image docs](https://pdf2image.readthedocs.io/en/latest/installation.html) have instructions on installing `poppler` across various platforms.
+
+Additionally, if you're planning to contribute to `unstructured`, we provide you an optional `pre-commit` configuration
+file to ensure your code matches the formatting and linting standards used in `unstructured`.
+If you'd prefer not to have code changes auto-tidied before every commit, you can use  `make check` to see
+whether any linting or formatting changes should be applied, and `make tidy` to apply them.
+
+If using the optional `pre-commit`, you'll just need to install the hooks with `pre-commit install` since the
+`pre-commit` package is installed as part of `make install` mentioned above. Finally, if you decided to use `pre-commit`
+you can also uninstall the hooks with `pre-commit uninstall`.
+
+In addition to develop in your local OS we also provide a helper to use docker providing a development environment:
+
+```bash
+make docker-start-dev
+```
+
+This starts a docker container with your local repo mounted to `/mnt/local_unstructured`. This docker image allows you to develop without worrying about your OS's compatibility with the repo and its dependencies.
+
+## :clap: Quick Tour
+
+### Documentation
+This README overviews how to install, use and develop the library. For more comprehensive documentation, visit https://unstructured-io.github.io/unstructured/ .
+
+### Concepts Guide
+
+The `unstructured` library includes core functionality for partitioning, chunking, cleaning, and
+staging raw documents for NLP tasks.
+You can see a complete list of available functions and how to use them from the [Core Functionality documentation](https://unstructured-io.github.io/unstructured/core.html).
+
+In general, these functions fall into several categories:
+- *Partitioning* functions break raw documents into standard, structured elements.
+- *Cleaning* functions remove unwanted text from documents, such as boilerplate and sentence fragments.
+- *Staging* functions format data for downstream tasks, such as ML inference and data labeling.
+- *Chunking* functions split documents into smaller sections for use in RAG apps and similarity
+  search.
+- *Embedding* encoder classes provide an interfaces for easily converting preprocessed text to
+  vectors.
+
+The **Connectors** 🔗 in `unstructured` serve as vital links between the pre-processing pipeline and various data storage platforms. They allow for the batch processing of documents across various sources, including cloud services, repositories, and local directories. Each connector is tailored to a specific platform, such as Azure, Google Drive, or Github, and comes with unique commands and dependencies. To see the list of Connectors available in `unstructured` library, please check out the [Connectors GitHub folder](https://github.com/Unstructured-IO/unstructured/tree/main/unstructured/ingest/connector) and [documentation](https://unstructured-io.github.io/unstructured/ingest/index.html)
+
+### PDF Document Parsing Example
+The following examples show how to get started with the `unstructured` library. You can parse over a dozen document types with one line of code! Use this [Colab notebook](https://colab.research.google.com/drive/1U8VCjY2-x8c6y5TYMbSFtQGlQVFHCVIW) to run the example below.
+
+The easiest way to parse a document in unstructured is to use the `partition` function. If you use `partition` function, `unstructured` will detect the file type and route it to the appropriate file-specific partitioning function. If you are using the `partition` function, you may need to install additional parameters via `pip install unstructured[local-inference]`. Ensure you first install `libmagic` using the instructions outlined [here](https://unstructured-io.github.io/unstructured/installing.html#filetype-detection) `partition` will always apply the default arguments. If you need advanced features, use a document-specific partitioning function.
+
+```python
+from unstructured.partition.auto import partition
+
+elements = partition("example-docs/layout-parser-paper.pdf")
+```
+
+Run `print("\n\n".join([str(el) for el in elements]))` to get a string representation of the
+output, which looks like:
+
+```
+
+LayoutParser : A Uniﬁed Toolkit for Deep Learning Based Document Image Analysis
+
+Zejiang Shen 1 ( (cid:0) ), Ruochen Zhang 2 , Melissa Dell 3 , Benjamin Charles Germain Lee 4 , Jacob Carlson 3 , and
+Weining Li 5
+
+Abstract. Recent advances in document image analysis (DIA) have been primarily driven by the application of neural
+networks. Ideally, research outcomes could be easily deployed in production and extended for further investigation.
+However, various factors like loosely organized codebases and sophisticated model conﬁgurations complicate the easy
+reuse of important innovations by a wide audience. Though there have been ongoing eﬀorts to improve reusability and
+simplify deep learning (DL) model development in disciplines like natural language processing and computer vision, none
+of them are optimized for challenges in the domain of DIA. This represents a major gap in the existing toolkit, as DIA
+is central to academic research across a wide range of disciplines in the social sciences and humanities. This paper
+introduces LayoutParser, an open-source library for streamlining the usage of DL in DIA research and applications.
+The core LayoutParser library comes with a set of simple and intuitive interfaces for applying and customizing DL models
+for layout detection, character recognition, and many other document processing tasks. To promote extensibility,
+LayoutParser also incorporates a community platform for sharing both pre-trained models and full document digitization
+pipelines. We demonstrate that LayoutParser is helpful for both lightweight and large-scale digitization pipelines in
+real-word use cases. The library is publicly available at https://layout-parser.github.io
+
+Keywords: Document Image Analysis · Deep Learning · Layout Analysis · Character Recognition · Open Source library ·
+Toolkit.
+
+Introduction
+
+Deep Learning(DL)-based approaches are the state-of-the-art for a wide range of document image analysis (DIA) tasks
+including document image classiﬁcation [11,
+```
+
+See the [partitioning](https://unstructured-io.github.io/unstructured/core.html#partitioning)
+section in our documentation for a full list of options and instructions on how to use
+file-specific partitioning functions.
+
+## :guardsman: Security Policy
+
+See our [security policy](https://github.com/Unstructured-IO/unstructured/security/policy) for
+information on how to report security vulnerabilities.
+
+## :bug: Reporting Bugs
+
+Encountered a bug? Please create a new [GitHub issue](https://github.com/Unstructured-IO/unstructured/issues/new/choose) and use our bug report template to describe the problem. To help us diagnose the issue, use the `python scripts/collect_env.py` command to gather your system's environment information and include it in your report. Your assistance helps us continuously improve our software - thank you!
+
+## :books: Learn more
+
+| Section | Description |
+|-|-|
+| [Company Website](https://unstructured.io) | Unstructured.io product and company info |
+| [Documentation](https://unstructured-io.github.io/unstructured) | Full API documentation |
+| [Batch Processing](unstructured/ingest/README.md) | Ingesting batches of documents through Unstructured |
+
+## :chart_with_upwards_trend: Analytics
+
+We’ve partnered with Scarf (https://scarf.sh) to collect anonymized user statistics to understand which features our community is using and how to prioritize product decision-making in the future. To learn more about how we collect and use this data, please read our [Privacy Policy](https://unstructured.io/privacy-policy).
+To opt out of this data collection, you can set the environment variable `SCARF_NO_ANALYTICS=true` before running any `unstructured` commands.
+
+

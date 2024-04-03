@@ -1,4 +1,6 @@
 import streamlit as st
+from streamlit_chat import message
+import time
 from langchain import hub
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
@@ -9,13 +11,13 @@ from langchain_community.document_loaders import TextLoader
 from langchain_community.document_loaders import DirectoryLoader
 
 def display_conversation():
-    for role, text in st.session_state['conversation']:
+    for role, prompt in st.session_state['conversation']:
         if role == "user":
             with st.chat_message(role, avatar="🧃"):
-                st.markdown(text)
+                st.markdown(prompt)
         else:
-            with st.chat_message(role, avatar="🤖"):
-                st.markdown(text)
+            with st.chat_message(role, avatar="photo/Logo.png"):
+                st.markdown(prompt)
 
 def run_app():
     st.set_page_config(
@@ -62,7 +64,6 @@ def run_app():
     st.sidebar.page_link("https://chat.openai.com/", label="ChatGPT", help="Chat GPT 사이트로 이동합니다")
     st.sidebar.page_link("https://gabean.kr/", label="GaBean", help="개발자의 또 다른 웹 사이트로 이동합니다")
 
-
     if "chat_session" not in st.session_state:
         st.session_state["conversation"] = [] # 대화 이력을 저장할 리스트 초기화
 
@@ -74,7 +75,8 @@ def run_app():
         # 단계 1: 문서 로드(Load Documents)
         # 문서를 로드하고, 청크로 나누고, 인덱싱합니다.
 
-        loader = DirectoryLoader(".", glob="data/SYU_GPT/*.txt", show_progress=True)
+        loader = TextLoader("data/SYU_GPT data.txt")
+        # loader = DirectoryLoader(".", glob="data/SYU_GPT/*.txt", show_progress=True)
         docs = loader.load()
 
         # 단계 2: 문서 분할(Split Documents)
@@ -114,10 +116,18 @@ def run_app():
         # 문서에 대한 질의를 입력하고, 답변을 출력합니다.
         question = user_input
 
-        with st.spinner("질문을 처리하는 중입니다..."):
+        spinner = st.empty()
+
+        with spinner.container():
+            with st.spinner("질문을 분석하는 중입니다..."):
+                time.sleep(2)
+                st.success("답변이 생성되었습니다!")
+                time.sleep(2)
+
+        with spinner.empty():
             response = rag_chain.invoke(question)
 
-        # 대화에 추가
+            # 대화에 추가
         st.session_state['conversation'].append(('user', user_input))
         st.session_state['conversation'].append(('SYU-GPT', response))
 

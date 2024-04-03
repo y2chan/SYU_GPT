@@ -5,11 +5,86 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dec7fdf2-d097-4a97-9158-c56cad50f52d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/testmain2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/SYU_GPT data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/관련 링크 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/관련 링크 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/교통 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/교통 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/도서관 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/도서관 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/동아리 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/동아리 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/등록 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/등록 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/성적 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/성적 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/셔틀버스 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/셔틀버스 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/수강신청 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/수강신청 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/시설 정보 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/시설 정보 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/업무별 전화번호 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/업무별 전화번호 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/장학금 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/장학금 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/졸업 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/졸업 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/증명서 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/증명서 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/학과 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/학과 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/학교 건물 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/학교 건물 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/학사 일정 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/학사 일정 data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SYU_GPT/후문 정보 data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/SYU_GPT/후문 정보 data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ragtest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/dataclasses_json/__version__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/dataclasses_json/__version__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow-3.21.1.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow-3.21.1.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow-3.21.1.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow-3.21.1.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow-3.21.1.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/class_registry.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/class_registry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/fields.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/validate.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/marshmallow/validate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/typing_extensions-4.10.0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/typing_extensions-4.10.0.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/typing_extensions-4.10.0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/typing_extensions-4.10.0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/typing_extensions-4.10.0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/typing_extensions.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/typing_extensions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3-2.2.1.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3-2.2.1.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3-2.2.1.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3-2.2.1.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3-2.2.1.dist-info/licenses/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/_base_connection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/_collections.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/_collections.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/_request_methods.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/_version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/connectionpool.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/connectionpool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/contrib/emscripten/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/contrib/emscripten/connection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/contrib/emscripten/emscripten_fetch_worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/contrib/emscripten/fetch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/contrib/emscripten/request.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/contrib/emscripten/response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/contrib/pyopenssl.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/contrib/pyopenssl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/contrib/socks.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/contrib/socks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/fields.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/filepost.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/filepost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/http2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/poolmanager.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/poolmanager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/py.typed" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/proxy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/retry.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/retry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/ssl_.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/ssl_.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/ssl_match_hostname.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/ssl_match_hostname.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/ssltransport.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/ssltransport.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/timeout.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/timeout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/wait.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/urllib3/util/wait.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
