@@ -1,13 +1,24 @@
 import streamlit as st
-from langchain import hub
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import FAISS
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_community.document_loaders import TextLoader
-from langchain_community.document_loaders import DirectoryLoader
+import os
+from openai import OpenAI
+from dotenv import load_dotenv, find_dotenv
 
+# 환경 변수 로드
+load_dotenv(find_dotenv())
+
+# OpenAI 클라이언트 초기화
+openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+
+# 메시지를 처리하고 응답을 반환하는 함수
+def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0):
+    chat_completion = openai_client.chat.completions.create(
+        messages=messages,
+        model=model,
+        temperature=temperature,
+    )
+    return chat_completion.choices[0].message.content
+
+# 대화 내용을 화면에 출력하는 함수
 def display_conversation():
     for role, text in st.session_state['conversation']:
         if role == "user":
@@ -17,7 +28,10 @@ def display_conversation():
             with st.chat_message(role, avatar="🤖"):
                 st.markdown(text)
 
+
+# Streamlit 앱
 def run_app():
+
     st.set_page_config(
         page_title="SYU-GPT",
         page_icon="photo/Logo.png",
@@ -29,7 +43,7 @@ def run_app():
         }
     )
 
-    # 제목
+    #제목
     st.title('SYU-GPT', anchor=False)
 
     # 먼저, subheader와 caption을 포함하는 부분을 st.empty()를 사용하여 빈 홀더로 만듭니다.
@@ -37,7 +51,7 @@ def run_app():
 
     # 이제 info_placeholder를 사용하여 subheader와 caption을 표시합니다.
     with info_placeholder.container():
-        st.subheader('삼육대학교 검색 엔진', anchor=False)
+        st.subheader('삼육대학교 검색 엔진')
         st.caption('여러분이 검색하고 싶은 학교 정보를 검색하세요!')
         st.caption('매일 데이터를 업데이트 중입니다.')
         st.caption('삼육대학교 재학생이라면 사용해보세요! 😊')
@@ -55,69 +69,45 @@ def run_app():
 
     st.sidebar.write('-' * 50)
     st.sidebar.subheader("Menu")
-    st.sidebar.page_link("main.py", label="홈", help="홈 화면으로 이동합니다")
+    st.sidebar.page_link("testmain2.py", label="홈", help="홈 화면으로 이동합니다")
     st.sidebar.page_link("pages/greeting.py", label="인사말")
     st.sidebar.page_link("pages/guide.py", label="사용 가이드")
     st.sidebar.subheader("Other Web")
-    st.sidebar.page_link("https://chat.openai.com/", label="ChatGPT", help="Chat GPT 사이트로 이동합니다")
+    st.sidebar.page_link("https://chat.openai.com/", label="ChatGPT", help="Chat GPT 웹 사이트로 이동합니다")
     st.sidebar.page_link("https://gabean.kr/", label="GaBean", help="개발자의 또 다른 웹 사이트로 이동합니다")
 
 
     if "chat_session" not in st.session_state:
         st.session_state["conversation"] = [] # 대화 이력을 저장할 리스트 초기화
 
+
     # 사용자 입력 처리
     if user_input := st.chat_input("질문을 입력하세요."):
         # 사용자가 입력을 시작하면, info_placeholder를 삭제하거나 숨깁니다.
         info_placeholder.empty()  # 이제 subheader와 caption이 사라집니다.
 
-        # 단계 1: 문서 로드(Load Documents)
-        # 문서를 로드하고, 청크로 나누고, 인덱싱합니다.
+        if 'context' not in st.session_state:
+            st.session_state['context'] = [{'role': 'system', 'content': """
+        You are SYU-GPT, an automated chatbot designed to answer questions about 삼육대학교. \
+        You provide information on various topics including departments, scholarships, \
+        registrations, grades, graduation, course enrollment, shuttle buses, transportation, facility information, \
+        academic schedules, academic notice, library services, campus buildings, certification documents, and the rear gate. \
+        The database is organized with detailed information under each category. \
+        Your responses should be accurate, informative, and delivered in a friendly conversational style. \
+        Please ensure the information provided is up to date and relevant to the user's query. \
+        """}]
 
-        loader = DirectoryLoader(".", glob="data/SYU_GPT/*.txt", show_progress=True)
-        docs = loader.load()
 
-        # 단계 2: 문서 분할(Split Documents)
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=50)
 
-        splits = text_splitter.split_documents(docs)
-
-        # 단계 3: 임베딩 & 벡터스토어 생성(Create Vectorstore)
-        # 벡터스토어를 생성합니다.
-        vectorstore = FAISS.from_documents(documents=splits, embedding=OpenAIEmbeddings())
-
-        # 단계 4: 검색(Search)
-        # 뉴스에 포함되어 있는 정보를 검색하고 생성합니다.
-        retriever = vectorstore.as_retriever()
-
-        # 단계 5: 프롬프트 생성(Create Prompt)
-        # 프롬프트를 생성합니다.
-        prompt = hub.pull("rlm/rag-prompt")
-
-        # 단계 6: 언어모델 생성(Create LLM)
-        # 모델(LLM) 을 생성합니다.
-        llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
-
-        def format_docs(docs):
-            # 검색한 문서 결과를 하나의 문단으로 합쳐줍니다.
-            return "\n\n".join(doc.page_content for doc in docs)
-
-        # 단계 7: 체인 생성(Create Chain)
-        rag_chain = (
-                {"context": retriever | format_docs, "question": RunnablePassthrough()}
-                | prompt
-                | llm
-                | StrOutputParser()
-        )
-
-        # 단계 8: 체인 실행(Run Chain)
-        # 문서에 대한 질의를 입력하고, 답변을 출력합니다.
-        question = user_input
+        # 사용자의 메시지 추가
+        st.session_state['context'].append({'role': 'user', 'content': user_input})
 
         with st.spinner("질문을 처리하는 중입니다..."):
-            response = rag_chain.invoke(question)
+            # OpenAI로부터 응답 받기
+            response = get_completion_from_messages(st.session_state['context']) # 적절한 'messages' 인자를 전달
 
         # 대화에 추가
+        st.session_state['context'].append({'role': 'assistant', 'content': response})
         st.session_state['conversation'].append(('user', user_input))
         st.session_state['conversation'].append(('SYU-GPT', response))
 
@@ -129,7 +119,7 @@ def run_app():
 
         st.caption(" ")
         st.caption(" ")
-        st.page_link("main.py", label="처음으로 돌아가기", help="처음 화면으로 이동합니다")
+        st.page_link("testmain2.py", label="처음으로 돌아가기", help="처음 화면으로 이동합니다")
 
 # 앱 실행
 run_app()
