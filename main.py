@@ -14,13 +14,6 @@ from langchain_core.prompts import PromptTemplate
 from langchain.agents import AgentExecutor, create_react_agent
 import os
 
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
-os.environ["LANGCHAIN_API_KEY"] = "ls__202a1d46885b4cd085668e62959bd3fd"
-os.environ["LANGCHAIN_PROJECT"] = "SYU-GPT"
-os.environ["OPENAI_API_KEY"] = "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"
-os.environ["SERPER_API_KEY"] = "c8e06b2f9d85e759d3cbfecb409fdabfbff52780"
-
 def run_app():
     st.set_page_config(
         page_title="SYU-GPT",
