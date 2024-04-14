@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from langchain import hub
 from langchain.text_splitter import CharacterTextSplitter
@@ -5,28 +6,58 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_community.document_loaders import TextLoader
-from langchain.llms.openai import OpenAI
-from langchain.utilities import GoogleSerperAPIWrapper
-from langchain.agents import initialize_agent, Tool
-from langchain.agents import AgentType
-from langchain_core.prompts import PromptTemplate
-from langchain.agents import AgentExecutor, create_react_agent
-import os
+from langchain_community.document_loaders import TextLoader, DirectoryLoader
 
-def run_app():
-    st.set_page_config(
-        page_title="SYU-GPT",
-        page_icon="photo/Logo.png",
-        layout="wide",
-        initial_sidebar_state="expanded",
-        menu_items={
-            'Get Help': 'https://www.extremelycoolapp.com/help',
-            'Report a bug': "https://www.extremelycoolapp.com/bug",
-        }
-    )
+# 환경 설정
+def setup_environment():
+    os.environ["LANGCHAIN_TRACING_V2"] = "true"
+    os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
+    os.environ["LANGCHAIN_API_KEY"] = "ls__202a1d46885b4cd085668e62959bd3fd"
+    os.environ["LANGCHAIN_PROJECT"] = "SYU-GPT"
+    os.environ["OPENAI_API_KEY"] = "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"
+    os.environ["SERPER_API_KEY"] = "c8e06b2f9d85e759d3cbfecb409fdabfbff52780"
 
-    # 제목
+# 문서 처리 준비
+def prepare_documents():
+    if "retriever" not in st.session_state:
+        # loader = TextLoader("data/SYU_GPT data.txt")
+        loader = DirectoryLoader(".", glob="data/SYU_GPT/*.txt", show_progress=True)
+        docs = loader.load()
+        text_splitter = CharacterTextSplitter(chunk_size=5000, chunk_overlap=0, separator="\n")
+        splits = text_splitter.split_documents(docs)
+        vectorstore = FAISS.from_documents(documents=splits, embedding=OpenAIEmbeddings())
+        st.session_state.retriever = vectorstore.as_retriever()
+
+# 응답 생성
+def generate_response(user_input):
+    try:
+        prompt = hub.pull("rlm/rag-prompt")
+        llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+        def format_docs(docs):
+            return "\n\n".join(doc.page_content for doc in docs)
+        rag_chain = (
+                {"context": st.session_state.retriever | format_docs, "question": RunnablePassthrough()}
+                | prompt
+                | llm
+                | StrOutputParser()
+        )
+        return rag_chain.invoke(user_input)
+    except Exception as e:
+        # 로그 또는 사용자 인터페이스에 보다 상세한 오류 메시지 출력
+        st.error(f"API request failed: {str(e)}")
+        return None
+
+
+# 예외 처리를 강화하여 API 권한 문제에 대해 좀 더 상세한 정보를 제공
+def main():
+    setup_environment()
+    try:
+        prepare_documents()
+        # 기타 코드 구현
+    except Exception as e:
+        st.error(f"An unexpected error occurred: {e}")
+
+    st.set_page_config(page_title="SYU-GPT", layout="wide", initial_sidebar_state="expanded", menu_items={'Get Help': 'https://www.extremelycoolapp.com/help', 'Report a bug': "https://www.extremelycoolapp.com/bug",})
     st.title('SYU-GPT', anchor=False)
 
     # 먼저, subheader와 caption을 포함하는 부분을 st.empty()를 사용하여 빈 홀더로 만듭니다.
@@ -60,95 +91,22 @@ def run_app():
     st.sidebar.page_link("https://gabean.kr/", label="GaBean", help="개발자의 또 다른 웹 사이트로 이동합니다")
 
     if "chat_session" not in st.session_state:
-        st.session_state.messages = [] # 대화 이력을 저장할 리스트 초기화
+        st.session_state.messages = []
 
-    # 사용자 입력 처리
     if user_input := st.chat_input("질문을 입력하세요."):
-        # 사용자가 입력을 시작하면, info_placeholder를 삭제하거나 숨깁니다.
-        info_placeholder.empty()  # 이제 subheader와 caption이 사라집니다.
+        info_placeholder.empty()
+        try:
+            with st.spinner("답변을 생성하는 중입니다..."):
+                response = generate_response(user_input)
 
-        # 단계 1: 문서 로드(Load Documents)
-        # 문서를 로드하고, 청크로 나누고, 인덱싱합니다.
+            with st.chat_message("user", avatar="🧃"):
+                st.markdown(user_input)
+            st.session_state.messages.append({"role": "user", "content": user_input})
+            with st.chat_message("SYU-GPT", avatar="photo/Logo.png"):
+                st.markdown(response)
+            st.session_state.messages.append({"role": "SYU-GPT", "content": response})
+        except Exception as e:
+            st.error("에러가 발생했습니다: {}".format(e))
 
-        loader = TextLoader("data/SYU_GPT data.txt")
-        # loader = DirectoryLoader(".", glob="data/SYU_GPT/*.txt", show_progress=True)
-        # loader = PyPDFLoader("data/SYU_GPT 데이터 문서.pdf")
-        docs = loader.load()
-
-        # 단계 2: 문서 분할(Split Documents)
-        text_splitter = CharacterTextSplitter(
-            chunk_size=5000, chunk_overlap=500, separator="\n"
-        )
-
-        splits = text_splitter.split_documents(docs)
-
-        # 단계 3: 임베딩 & 벡터스토어 생성(Create Vectorstore)
-        # 벡터스토어를 생성합니다.
-        vectorstore = FAISS.from_documents(documents=splits, embedding=OpenAIEmbeddings())
-
-        # 단계 4: 검색(Search)
-        # 뉴스에 포함되어 있는 정보를 검색하고 생성합니다.
-        retriever = vectorstore.as_retriever()
-
-        # 단계 5: 프롬프트 생성(Create Prompt)
-        # 프롬프트를 생성합니다.
-        prompt = hub.pull("rlm/rag-prompt")
-
-        # 단계 6: 언어모델 생성(Create LLM)
-        # 모델(LLM) 을 생성합니다.
-        llm = ChatOpenAI(model_name="gpt-4-turbo-preview", temperature=0)
-
-        def format_docs(docs):
-            # 검색한 문서 결과를 하나의 문단으로 합쳐줍니다.
-            return "\n\n".join(doc.page_content for doc in docs)
-
-        model = llm
-
-        google_search = GoogleSerperAPIWrapper()
-        tools = [
-            Tool(
-                name="SYU-GPT",
-                func=google_search.run,
-                description="Chatbot For Sahmyook University",
-                verbose=True
-            )
-        ]
-
-        search_agent = create_react_agent(model, tools, prompt)
-        agent_executor = AgentExecutor(
-            agent=search_agent,
-            tools=tools,
-            verbose=True,
-            return_intermediate_steps=True,
-        )
-
-        # 단계 7: 체인 생성(Create Chain)
-        rag_chain = (
-                {"context": retriever | format_docs, "question": RunnablePassthrough()}
-                | prompt
-                | llm
-                | StrOutputParser()
-        )
-
-        # 단계 8: 체인 실행(Run Chain)
-        # 문서에 대한 질의를 입력하고, 답변을 출력합니다.
-        question = user_input
-
-        with st.spinner("답변을 생성하는 중입니다..."):
-            response = rag_chain.invoke(question)
-
-        # 대화에 추가
-        with st.chat_message("user", avatar="🧃"):
-            st.markdown(user_input)
-        st.session_state.messages.append({"role": "user", "content": user_input})
-
-        with st.chat_message("SYU-GPT", avatar="photo/Logo.png"):
-            st.markdown(response)
-        st.session_state.messages.append({"role": "SYU-GPT", "content": response})
-
-        st.caption(" ")
-        st.caption(" ")
-        st.page_link("main.py", label="처음으로 돌아가기", help="처음 화면으로 이동합니다")
-
-# 앱 실행
-run_app()
+if __name__ == "__main__":
+    main()
