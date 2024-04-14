@@ -10,12 +10,6 @@ from langchain_community.document_loaders import TextLoader, DirectoryLoader
 
 # 환경 설정
 def setup_environment():
-    os.environ["LANGCHAIN_TRACING_V2"] = "true"
-    os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
-    os.environ["LANGCHAIN_API_KEY"] = "ls__202a1d46885b4cd085668e62959bd3fd"
-    os.environ["LANGCHAIN_PROJECT"] = "SYU-GPT"
-    os.environ["OPENAI_API_KEY"] = "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"
-    os.environ["SERPER_API_KEY"] = "c8e06b2f9d85e759d3cbfecb409fdabfbff52780"
 
 # 문서 처리 준비
 def prepare_documents():
