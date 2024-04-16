@@ -1,16 +1,11 @@
 import streamlit as st
 
-if "counter" not in st.session_state:
-    st.session_state.counter = 0
-
-st.session_state.counter += 1
-
 st.set_page_config(
     page_title="사용 가이드",
     # page_icon="😃",
     page_icon="photo/Logo.png",
     layout="wide",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="expanded",
     menu_items={
         'Get Help': 'https://www.extremelycoolapp.com/help',
         'Report a bug': "https://www.extremelycoolapp.com/bug",
@@ -29,9 +24,9 @@ st.sidebar.markdown(hide_img_fs, unsafe_allow_html=True)
 
 st.sidebar.write('-' * 50)
 st.sidebar.subheader("Menu")
-st.sidebar.page_link("main.py", label="홈", help="홈 화면으로 이동합니다")
-st.sidebar.page_link("pages/greeting.py", label="인사말")
-st.sidebar.page_link("pages/guide.py", label="사용 가이드")
+st.sidebar.page_link("main.py", label="홈", help="홈 화면으로 이동합니다", icon="🏠")
+st.sidebar.page_link("pages/greeting.py", label="인사말", icon="✋")
+st.sidebar.page_link("pages/guide.py", label="사용 가이드", icon="❓")
 st.sidebar.subheader("Other Web")
 st.sidebar.page_link("https://chat.openai.com/", label="ChatGPT", help="Chat GPT 사이트로 이동합니다")
 st.sidebar.page_link("https://gabean.kr/", label="GaBean", help="개발자의 또 다른 웹 사이트로 이동합니다")

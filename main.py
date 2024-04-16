@@ -14,13 +14,13 @@ def setup_environment():
     os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
     os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGSMITH_API_TOKEN")
     os.environ["LANGCHAIN_PROJECT"] = "SYU-GPT"
-    os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_TOKEN")
+    os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
     os.environ["SERPER_API_KEY"] = os.getenv("SERPER_API_KEY")
 
 # 문서 처리 준비
 def prepare_documents():
     if "retrievers" not in st.session_state:
-        st.session_state.retrievers = []  # retrievers 초기화
+        st.session_state.retrievers = []
 
     # 파일별 설정
     config = {
@@ -48,6 +48,7 @@ def prepare_documents():
     loader = DirectoryLoader(".", glob="data/SYU_GPT/*.txt", show_progress=True)
     docs = loader.load()
 
+    all_splits = []
     for doc in docs:
         file_path = doc.metadata['source']
         file_name = os.path.basename(file_path)
@@ -61,55 +62,56 @@ def prepare_documents():
 
         text_splitter = CharacterTextSplitter(
             chunk_size=chunk_size,
-            chunk_overlap=chunk_overlap,
-            separator="\n"
+            chunk_overlap=chunk_overlap
         )
         splits = text_splitter.split_documents([doc])
+        all_splits.extend(splits)
 
-        if splits:
-            vectorstore = FAISS.from_documents(documents=splits, embedding=OpenAIEmbeddings())
-            st.session_state.retrievers.append(vectorstore.as_retriever())
-        else:
-            print(f"No splits found for {file_name}. Skipping.")
+    # 모든 분할이 완료된 후에 한 번만 vectorstore를 생성
+    if all_splits:
+        vectorstore = FAISS.from_documents(documents=all_splits, embedding=OpenAIEmbeddings())
+        st.session_state.retrievers.append(vectorstore.as_retriever())
+    else:
+        print("No documents were split or processed.")
 
 # 응답 생성
 def generate_response(user_input):
+    if "retrievers" not in st.session_state or not st.session_state.retrievers:
+        return "문서 처리기가 초기화되지 않았습니다. 문서를 먼저 처리해주세요."
+
     try:
-        # 세션 상태에서 retrievers 리스트를 확인
-        if "retrievers" not in st.session_state or not st.session_state.retrievers:
-            return "문서 처리기가 초기화되지 않았습니다. 문서를 먼저 처리해주세요."
-
-        # 문서 처리기(retriever)를 선택
-        retriever = st.session_state.retrievers[0]  # 예제에서는 첫 번째 retriever를 사용
-
-        # LangChain의 RAG 구성을 사용하여 응답 생성
+        retriever = st.session_state.retrievers[0]
         prompt = hub.pull("rlm/rag-prompt")
         llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, max_tokens=300)
 
-        # 문서 형식을 정의
         def format_docs(docs):
             return "\n\n".join(doc.page_content for doc in docs)
 
-        # RAG 체인 구성
         rag_chain = (
-                {"context": retriever | format_docs, "question": RunnablePassthrough()}  # context 파이프라인 수정
+                {"context": retriever | format_docs, "question": RunnablePassthrough()}
                 | prompt
                 | llm
                 | StrOutputParser()
         )
 
-        # 사용자 입력을 처리하고 응답 반환
         response = rag_chain.invoke(user_input)
         return response
     except Exception as e:
         st.error(f"응답 생성 중 오류 발생: {str(e)}")
         return "응답을 생성하는 동안 오류가 발생했습니다. 자세한 정보는 로그를 확인하세요."
 
-
-
-# 예외 처리를 강화하여 API 권한 문제에 대해 좀 더 상세한 정보를 제공
 def main():
-    st.set_page_config(page_title="SYU-GPT", layout="wide", initial_sidebar_state="expanded", menu_items={'Get Help': 'https://www.extremelycoolapp.com/help', 'Report a bug': "https://www.extremelycoolapp.com/bug",})
+    st.set_page_config(
+        page_title="인사말",
+        # page_icon="😃",
+        page_icon="photo/Logo.png",
+        layout="wide",
+        initial_sidebar_state="expanded",
+        menu_items={
+            'Get Help': 'https://www.extremelycoolapp.com/help',
+            'Report a bug': "https://www.extremelycoolapp.com/bug",
+        }
+    )
 
     st.title('SYU-GPT', anchor=False)
 
@@ -120,9 +122,10 @@ def main():
     with info_placeholder.container():
         st.subheader('삼육대학교 검색 엔진', anchor=False)
         st.caption('여러분이 검색하고 싶은 학교 정보를 검색하세요!')
-        st.caption('매일 데이터를 업데이트 중입니다.')
+        st.caption('데이터를 주기적으로 업데이트 중입니다.')
         st.caption('삼육대학교 재학생이라면 사용해보세요! 😊')
         st.caption(' ')
+        st.page_link("pages/guide.py", label="사용 가이드 바로가기", help="사용 가이드로 이동합니다.", icon="▶")
 
     # 사이드바
     st.sidebar.image("photo/syugptLogo.png")
@@ -136,9 +139,9 @@ def main():
 
     st.sidebar.write('-' * 50)
     st.sidebar.subheader("Menu")
-    st.sidebar.page_link("main.py", label="홈", help="홈 화면으로 이동합니다")
-    st.sidebar.page_link("pages/greeting.py", label="인사말")
-    st.sidebar.page_link("pages/guide.py", label="사용 가이드")
+    st.sidebar.page_link("main.py", label="홈", help="홈 화면으로 이동합니다", icon="🏠")
+    st.sidebar.page_link("pages/greeting.py", label="인사말", icon="✋")
+    st.sidebar.page_link("pages/guide.py", label="사용 가이드", icon="❓")
     st.sidebar.subheader("Other Web")
     st.sidebar.page_link("https://chat.openai.com/", label="ChatGPT", help="Chat GPT 사이트로 이동합니다")
     st.sidebar.page_link("https://gabean.kr/", label="GaBean", help="개발자의 또 다른 웹 사이트로 이동합니다")
@@ -156,7 +159,7 @@ def main():
             st.error(f"An unexpected error occurred: {e}")
 
         try:
-            with st.spinner("답변을 생성하는 중입니다..."):
+            with st.spinner("최적의 답변을 생성하는 중입니다..."):
                 response = generate_response(user_input)
 
             with st.chat_message("user", avatar="🧃"):
