@@ -126,8 +126,10 @@ def main():
         st.caption('여러분이 검색하고 싶은 학교 정보를 검색하세요!')
         st.caption('데이터를 주기적으로 업데이트 중입니다.')
         st.caption('삼육대학교 재학생이라면 사용해보세요! 😊')
-        st.caption(' ')
-        st.page_link("pages/guide.py", label="사용 가이드 바로가기", help="사용 가이드로 이동합니다.", icon="▶")
+
+    st.caption('사용하시는데 불편한 점이 있으면 아래 사용 가이드를 확인해보세요!')
+    st.caption(' ')
+    st.page_link("pages/guide.py", label="사용 가이드 바로가기", help="사용 가이드로 이동합니다.", icon="▶")
 
     # 사이드바
     st.sidebar.image("photo/syugptLogo.png")
