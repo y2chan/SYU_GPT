@@ -108,7 +108,7 @@ def main():
         # page_icon="😃",
         page_icon="photo/Logo.png",
         layout="wide",
-        initial_sidebar_state="expanded",
+        initial_sidebar_state="auto",
         menu_items={
             'Get Help': 'https://www.extremelycoolapp.com/help',
             'Report a bug': "https://www.extremelycoolapp.com/bug",
