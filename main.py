@@ -166,16 +166,16 @@ def main():
         try:
             with st.spinner("답변을 생성하는 중입니다..."):
                 response = generate_response(user_input)
-                st.caption(' ')
-                st.caption('사용하시는데 불편한 점이 있으면 아래 사용 가이드를 참고해보세요!')
-                st.caption(' ')
-                st.page_link("pages/guide.py", label="사용 가이드 바로가기", help="사용 가이드로 이동합니다.", icon="▶")
 
             with st.chat_message("user", avatar="🧃"):
                 st.markdown(user_input)
             st.session_state.messages.append({"role": "user", "content": user_input})
             with st.chat_message("SYU-GPT", avatar="photo/Logo.png"):
                 st.markdown(response)
+                st.caption(' ')
+                st.caption('사용하시는데 불편한 점이 있으면 아래 사용 가이드를 참고해보세요!')
+                st.caption(' ')
+                st.page_link("pages/guide.py", label="사용 가이드 바로가기", help="사용 가이드로 이동합니다.", icon="▶")
             st.session_state.messages.append({"role": "SYU-GPT", "content": response})
         except Exception as e:
             st.error("에러가 발생했습니다: {}".format(e))
