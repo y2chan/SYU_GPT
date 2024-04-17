@@ -164,7 +164,7 @@ def main():
             st.error(f"An unexpected error occurred: {e}")
 
         try:
-            with st.spinner("최적의 답변을 생성하는 중입니다..."):
+            with st.spinner("답변을 생성하는 중입니다..."):
                 response = generate_response(user_input)
 
             with st.chat_message("user", avatar="🧃"):
