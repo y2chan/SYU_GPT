@@ -7,6 +7,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.document_loaders import DirectoryLoader
+from functools import lru_cache
 
 # 환경 설정
 def setup_environment():
@@ -75,6 +76,7 @@ def prepare_documents():
         print("No documents were split or processed.")
 
 # 응답 생성
+@lru_cache(maxsize=100)  # 최대 100개의 유니크 요청을 캐시
 def generate_response(user_input):
     if "retrievers" not in st.session_state or not st.session_state.retrievers:
         return "문서 처리기가 초기화되지 않았습니다. 문서를 먼저 처리해주세요."
@@ -102,7 +104,7 @@ def generate_response(user_input):
 
 def main():
     st.set_page_config(
-        page_title="인사말",
+        page_title="SYU-GPT",
         # page_icon="😃",
         page_icon="photo/Logo.png",
         layout="wide",
@@ -139,10 +141,11 @@ def main():
 
     st.sidebar.write('-' * 50)
     st.sidebar.subheader("Menu")
-    st.sidebar.page_link("main.py", label="홈", help="홈 화면으로 이동합니다", icon="🏠")
-    st.sidebar.page_link("pages/greeting.py", label="인사말", icon="✋")
-    st.sidebar.page_link("pages/guide.py", label="사용 가이드", icon="❓")
+    st.sidebar.page_link("main.py", label="Home", help="홈 화면으로 이동합니다", icon="🏠")
+    st.sidebar.page_link("pages/greeting.py", label="Greeting", icon="✋")
+    st.sidebar.page_link("pages/guide.py", label="User's Guide", icon="❓")
     st.sidebar.subheader("Other Web")
+    st.sidebar.page_link("https://www.syu.ac.kr/", label="Sahmyook University", help="삼육대학교 공식 사이트로 이동합니다")
     st.sidebar.page_link("https://chat.openai.com/", label="ChatGPT", help="Chat GPT 사이트로 이동합니다")
     st.sidebar.page_link("https://gabean.kr/", label="GaBean", help="개발자의 또 다른 웹 사이트로 이동합니다")
 
