@@ -115,6 +115,13 @@ def main():
         }
     )
 
+    setup_environment()
+    try:
+        prepare_documents()
+        # 기타 코드 구현
+    except Exception as e:
+        st.error(f"An unexpected error occurred: {e}")
+
     st.title('SYU-GPT', anchor=False)
 
     # 먼저, subheader와 caption을 포함하는 부분을 st.empty()를 사용하여 빈 홀더로 만듭니다.
@@ -156,12 +163,6 @@ def main():
 
     if user_input := st.chat_input("질문을 입력하세요."):
         info_placeholder.empty()
-        setup_environment()
-        try:
-            prepare_documents()
-            # 기타 코드 구현
-        except Exception as e:
-            st.error(f"An unexpected error occurred: {e}")
 
         try:
             with st.spinner("답변을 생성하는 중입니다..."):
