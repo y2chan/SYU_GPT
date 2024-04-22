@@ -26,22 +26,22 @@ def prepare_documents():
     # 파일별 설정
     config = {
         'introduce.txt': {'chunk_size': 1500, 'chunk_overlap': 300},
-        '관련 링크 data.txt': {'chunk_size': 1000, 'chunk_overlap': 200},
+        '관련 링크 data.txt': {'chunk_size': 1500, 'chunk_overlap': 300},
         '교통 data.txt': {'chunk_size': 1500, 'chunk_overlap': 300},
         '도서관 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
         '동아리 data.txt': {'chunk_size': 1500, 'chunk_overlap': 250},
-        '등록 data.txt': {'chunk_size': 1500, 'chunk_overlap': 250},
+        '등록 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
         '성적 data.txt': {'chunk_size': 1500, 'chunk_overlap': 300},
         '셔틀버스 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
         '수강신청 data.txt': {'chunk_size': 1500, 'chunk_overlap': 250},
         '시설 정보 data.txt': {'chunk_size': 2000, 'chunk_overlap': 350},
         '업무별 전화번호 data.txt': {'chunk_size': 1000, 'chunk_overlap': 200},
-        '장학금 data.txt': {'chunk_size': 1200, 'chunk_overlap': 250},
+        '장학금 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
         '졸업 data.txt': {'chunk_size': 1200, 'chunk_overlap': 250},
-        '증명서 data.txt': {'chunk_size': 1200, 'chunk_overlap': 250},
-        '학과 data.txt': {'chunk_size': 1200, 'chunk_overlap': 250},
+        '증명서 data.txt': {'chunk_size': 2000, 'chunk_overlap': 250},
+        '학과 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
         '학사 일정 data.txt': {'chunk_size': 1500, 'chunk_overlap': 300},
-        '후문 정보 data.txt': {'chunk_size': 1000, 'chunk_overlap': 200},
+        '후문 정보 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
         '학교 건물 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
     }
 
