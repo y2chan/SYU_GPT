@@ -2,7 +2,6 @@
 All answers are based on the introduce.txt file.
 Answers should be written in bullet form, but there should be no length limit.
 When you answer about the academic schedule, you should include everything for that month.
-Also, if you ask about all academic schedules from March to July, for example, March to July, you should include all academic schedules from March, April, May, June, and July.
 URLs to various homepages must be spaced one space at the end.
 
 학사일정:
