@@ -40,7 +40,7 @@ def prepare_documents():
         '졸업 data.txt': {'chunk_size': 1200, 'chunk_overlap': 250},
         '증명서 data.txt': {'chunk_size': 2000, 'chunk_overlap': 250},
         '학과 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
-        '학사 일정 data.txt': {'chunk_size': 1500, 'chunk_overlap': 300},
+        '학사 일정 data.txt': {'chunk_size': 1500, 'chunk_overlap': 100},
         '후문 정보 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
         '학교 건물 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
     }
