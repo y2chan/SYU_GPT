@@ -32,17 +32,17 @@ def prepare_documents():
         '동아리 data.txt': {'chunk_size': 1500, 'chunk_overlap': 250},
         '등록 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
         '성적 data.txt': {'chunk_size': 1500, 'chunk_overlap': 300},
-        '셔틀버스 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
+        '셔틀버스 data.txt': {'chunk_size': 1000, 'chunk_overlap': 300},
         '수강신청 data.txt': {'chunk_size': 1500, 'chunk_overlap': 250},
         '시설 정보 data.txt': {'chunk_size': 2000, 'chunk_overlap': 350},
         '업무별 전화번호 data.txt': {'chunk_size': 1000, 'chunk_overlap': 200},
-        '장학금 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
+        '장학금 data.txt': {'chunk_size': 4000, 'chunk_overlap': 100},
         '졸업 data.txt': {'chunk_size': 1200, 'chunk_overlap': 250},
         '증명서 data.txt': {'chunk_size': 2000, 'chunk_overlap': 250},
         '학과 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
         '학사 일정 data.txt': {'chunk_size': 1500, 'chunk_overlap': 100},
         '후문 정보 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
-        '학교 건물 data.txt': {'chunk_size': 2000, 'chunk_overlap': 300},
+        '학교 건물 data.txt': {'chunk_size': 3000, 'chunk_overlap': 100},
     }
 
     # DirectoryLoader로 모든 txt 파일 로드
