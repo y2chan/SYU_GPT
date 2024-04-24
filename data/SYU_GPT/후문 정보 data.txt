@@ -91,7 +91,7 @@ URLs to various homepages must be spaced one space at the end.
             - 월-금, 일 11:00 ~ 21:00
             - 토 당분간 휴무
 
-    - 이디야커피
+    - 이디야커피 (Su-Pay 가맹점)
         - 종류 : 카페
         - 전화번호 : 0507-1397-0208
         - 영업 시간 :
@@ -115,7 +115,7 @@ URLs to various homepages must be spaced one space at the end.
             - 토 정기휴무
         - 추천메뉴 : 김치볶음밥
 
-    - 쥬씨&차얌 (영업종료 후 하이오 카페)
+    - 하이오 카페 (구 쥬씨 & 차얌)
         - 종류 : 카페
         - 전화번호 : 031-575-5356
         - 영업 시간 :
