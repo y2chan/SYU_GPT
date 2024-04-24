@@ -3,21 +3,23 @@ All answers are based on the introduce.txt file.
 Do not bother to lengthen your answer, and do not include anything that is not relevant to the question in your answer.
 The answer only answers the questions asked. I don't answer anything other than the questions asked.
 All answers are only for reference in the following.
-When you're done answering the school building, change the line and add "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 URLs to various homepages must be spaced one space at the end.
 
 학교 건물:
     - 셔틀버스 정류장
         - 설명
             - 학교 내에는 셔틀버스와 2-2버스가 화랑대역, 석계역, 태릉입구역, 구리역을 통해 다니고 있습니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 분수대
         - 설명
             - 삼육대학교 학생홍보대사 수앰베서더(SU-AMBASSADOR)가 선정한 삼육대학교 포토존 BEST 6에 어울리는 물줄기를 보여주고 있습니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 대운동장
         - 설명
             - 풋살장과 농구장, 그리고 축구장이 함께 있는 운동장입니다. 바로 옆에는 삼육고등학교와 체육관이 있습니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 체육관
         - 설명
@@ -27,42 +29,52 @@ URLs to various homepages must be spaced one space at the end.
                 - 주경기장 (농구코트 1면, 배구코트 1면, 배드민턴코트 4면) / 스쿼시장 / 남ㆍ여 탈의실 및 샤워실 / 등록실 / 관리지원실 / 보건소
             - 3층
                 - 주경기장 관람석 (370석)
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 다니엘관/요한관<(박물관)
         - 설명
             - 2012년 신축건물로 우리대학의 로고를 응용한 랜드마크 건물입니다. 다니엘관과 요한관은 거의 같은 건물이라고 봐도 무방합니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 제3과학관
         - 설명
             - 물리치료학과와 간호학과, 약학과가 사용하는 건물입니다.<건물 전체에 실험실과 연구실들이 다양하게 있습니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 뉴스타트센터
         - 설명
             - 2014년 12월 4일 준공. 약 30억의 예산을 투입해 건축한 뉴스타트센터는 연면적 1456㎡ (약440평)규모의 반 지하 1층, 지상 3층으로 이루어져 있으며 96명을 수용할 수 있도록 지어졌습니다. 인성교육원을 찾고 싶다면 여기로 오시면 됩니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 식품영양학과 실습실
         - 설명
             - 식품영양학과에서 사용하는 실습실입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 학생상담센터
         - 설명
             - 학생상담센터입니다. 다양한 상담 프로그램을 진행하는 곳입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 제2과학관
         - 설명
             - 동물생명자원학과, 환경디자인원예학과 그리고 화학생명과학과가 사용하는 건물입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 제1과학관
         - 설명
             - 식품영양학과, 보건관리학과가 사용하는 건물입니다. 건물 내에 실험실, 조리실습실, 연구실 등이 있습니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 에스라관
         - 설명
-            - 보건관리학과에서 사용하는 건물입니다.< 강의실이 다양하게 있고, 1층에는 헬스장과 휴게실이 있습니다.
+            - 보건관리학과에서 사용하는 건물입니다. 강의실이 다양하게 있고, 1층에는 헬스장과 휴게실이 있습니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 도서관
         - 설명
             - 지하 1층부터 3층까지 공부하는 공간이 있는 도서관입니다. 다양한 자료와 서적들이 구비되어 있고, 휴게실과 스터디룸도 있습니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 바울관
         - 설명
@@ -76,6 +88,7 @@ URLs to various homepages must be spaced one space at the end.
                 - 중국어학실 / 유비쿼터스실
             - 4층
                 - 항공관광외국어학부 사무실
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 학생회관
         - 설명
@@ -87,6 +100,7 @@ URLs to various homepages must be spaced one space at the end.
                 - 총대의원회 / 졸업준비위원회 / 학회연합회 / (영자)신문사 / 각 동아리방
             - 4층
                 - 동아리연합회 / 각 동아리방
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 70주년 기념관 (대강당)
         - 설명
@@ -96,6 +110,7 @@ URLs to various homepages must be spaced one space at the end.
                 - 강당무대 / 강당홀 / 컨서바토리 / 영상선교팀
             - 2층
                 - 강당홀 / VOS방송실 / 편집실 / 영상선교팀
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 제1실습관
         - 설명
@@ -109,14 +124,17 @@ URLs to various homepages must be spaced one space at the end.
                 - 컴퓨터공학부 사무실 / 그 외 컴퓨터실습실
             - 5층
                 - 창업보육센터
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 디자인관(구 제2실습관)
         - 설명
             - 아트앤디자인학과와 건축학과가 사용하는 건물입니다. 101호에 아트앤디자인학과 사무실이 있고, 202호에는 건축학과 사무실이 있습니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 아트&디자인관
         - 설명
             - 아트앤디자인학과가 사용하는 건물입니다. 1층에 조교실이 있고, 다른 층에는 강의실들이 있습니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 백주년기념관
         - 설명
@@ -128,6 +146,7 @@ URLs to various homepages must be spaced one space at the end.
                 - 대외협력처 / 대회의실 / 국제교육관 연결통로
             - 4층
                 - SU-MVP강의실 / 홍보팀(401호) / 산학협력단 / 연구처 / 문서보관실
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 국제교육관
         - 설명
@@ -139,30 +158,37 @@ URLs to various homepages must be spaced one space at the end.
                 - 장근청홀(입구)
             - 4층
                 - 장근청홀
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 신학관
         - 설명
             - 신학과에서 주로 사용하는 건물입니다. 종교 관련 교양 수업을 들을 때 주로 방문해야하는 건물입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 스미스관
         - 설명
             - 1층 시설관리과 / 고시반
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 사무엘관
         - 설명
             - 사회복지학과와 영어영문학과가 주로 사용하는 건물입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 에덴관
         - 설명
             - 여자 대학생들을 위한 생활관(기숙사)입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 음악관
         - 설명
             - 음악학과 학생들이 사용하는 건물입니다. 피아노실과 레슨실, 실내악실 등이 있습니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 시온관
         - 설명
             - 남자 대학생들을 위한 생활관(기숙사)입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 생활관식당/교직원식당(만나의 집)
         - 설명
@@ -170,18 +196,22 @@ URLs to various homepages must be spaced one space at the end.
                 - 생활관(기숙사)식당
             - 2층
                 - 교직원식당
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 교직원 테니스장
         - 설명
             - 교직원 테니스장입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 살렘관
         - 설명
             - 신축 생활관(기숙사)입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 대학교회
         - 설명
             - 교회 / 목회실
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 다목적관
         - 설명
@@ -189,31 +219,39 @@ URLs to various homepages must be spaced one space at the end.
                 - 이종순 기념홀 / SAY
             - 2층
                 - 대학교회 / 교회사무실 / 목회실 / Lesson실 / 연습실
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 브니엘관
         - 설명
             - 대학원생을 위한 생활관(기숙사)입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 로뎀관
         - 설명
             - 로뎀관입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 외국인교수사택
         - 설명
             - 외국인 교수를 위한 사택입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 전인교육원
         - 설명
             - 영(靈), 지(知), 체(體)를 고루 발달시키는 전인교육(全人敎育)을 <다양한 프로그램을 통하여 학생들을 진리로 영을 새롭게 하고, <마음을 변화시켜서 행복한 사람이 되도록 도울 것입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 온실
         - 설명
             - 환경디자인원예학과 학생들이 실습하는 곳입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 목공실습실
         - 설명
             - 목공실습실입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
 
     - 실험동물실
         - 설명
             - 실험동물실입니다.
+            - "https://gabean.kr/campusmap/ 혹은 https://www.syu.ac.kr/about-sahmyook/college-guide/campusmap/ 에서 위치와 설명을 확인하실 수 있습니다!"
