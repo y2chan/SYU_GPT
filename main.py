@@ -3,11 +3,11 @@ import streamlit as st
 from langchain import hub
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_openai import ChatOpenAI
 from langchain_community.document_loaders import DirectoryLoader
-from functools import lru_cache
+from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema.runnable import RunnableMap
 
 # 환경 설정
 def setup_environment():
@@ -19,7 +19,7 @@ def setup_environment():
     os.environ["SERPER_API_KEY"] = os.getenv("SERPER_API_KEY")
 
 # 문서 처리 준비
-def prepare_documents():
+def generate_response(user_input):
     if "retrievers" not in st.session_state:
         st.session_state.retrievers = []
 
@@ -70,37 +70,48 @@ def prepare_documents():
 
     # 모든 분할이 완료된 후에 한 번만 vectorstore를 생성
     if all_splits:
-        vectorstore = FAISS.from_documents(documents=all_splits, embedding=OpenAIEmbeddings())
-        st.session_state.retrievers.append(vectorstore.as_retriever())
+        model_name = "jhgan/ko-sbert-nli"
+        model_kwargs = {'device': 'cpu'}
+        encode_kwargs = {'normalize_embeddings': True}
+        hf = HuggingFaceEmbeddings(
+            model_name=model_name,
+            model_kwargs=model_kwargs,
+            encode_kwargs=encode_kwargs
+        )
+        docsearch = FAISS.from_documents(all_splits, hf)
+        retriever = docsearch.as_retriever(
+            search_type="mmr",
+            search_kwargs={'k':3, 'fetch_k': 10})
+        retriever.get_relevant_documents("혁신성장 정책금융에 대해서 설명해줘")
+        template = """당신의 이름은 SYU-GPT입니다. 삼육대학교에 대한 다양한 정보들을 제공하는 챗봇입니다.
+                    All answers are based on the introduce.txt file.
+                    Please introduce yourself when the questioner greets you.
+                    Please introduce yourself when the questioner says "Hi", "Hello", "안녕".
+                    너는 학과, 장학금, 등록, 성적, 졸업, 수강신청, 셔틀버스, 교통, 시설정보, 학사일정, 도서관, 학교 건물, 증명서, 후문 정보, 동아리 등 다양한 주제의 정보를 제공합니다.
+                    The database consists of detailed information in each category's txt file.
+                    Your answers should be delivered in an accurate, informative, and friendly dialogue style.
+                    They should also be written in bullet style format.
+                    URLs to various homepages must be spaced one space at the end.
+                    When you tell me the URL, don't skip it and tell me the whole thing.
+                    Don't make up anything that's not relevant to what you asked.
+                    Please ensure the information provided is up to date and relevant to the user's query and files.
+                    You always refers to factual statements that can be referenced.
+                    You says only facts related to 삼육대학교 and does not add information on its own.:
+        {context}
+        
+        Question: {question}
+        """
+
+        prompt = ChatPromptTemplate.from_template(template)
+        llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, max_tokens=2048)
+        chain = RunnableMap({
+            "context": lambda x: retriever.get_relevant_documents(x['question']),
+            "question": lambda x: x['question']
+        }) | prompt | llm
+        response = chain.invoke({'question': user_input}).content
+        return response
     else:
         print("No documents were split or processed.")
-
-# 응답 생성
-@lru_cache(maxsize=100)  # 최대 100개의 유니크 요청을 캐시
-def generate_response(user_input):
-    if "retrievers" not in st.session_state or not st.session_state.retrievers:
-        return "문서 처리기가 초기화되지 않았습니다. 문서를 먼저 처리해주세요."
-
-    try:
-        retriever = st.session_state.retrievers[0]
-        prompt = hub.pull("rlm/rag-prompt")
-        llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, max_tokens=2048)
-
-        def format_docs(docs):
-            return "\n\n".join(doc.page_content for doc in docs)
-
-        rag_chain = (
-                {"context": retriever | format_docs, "question": RunnablePassthrough()}
-                | prompt
-                | llm
-                | StrOutputParser()
-        )
-
-        response = rag_chain.invoke(user_input)
-        return response
-    except Exception as e:
-        st.error(f"응답 생성 중 오류 발생: {str(e)}")
-        return "응답을 생성하는 동안 오류가 발생했습니다. 자세한 정보는 로그를 확인하세요."
 
 def main():
     st.set_page_config(
@@ -116,11 +127,6 @@ def main():
     )
 
     setup_environment()
-    try:
-        prepare_documents()
-        # 기타 코드 구현
-    except Exception as e:
-        st.error(f"An unexpected error occurred: {e}")
 
     st.title('SYU-GPT', anchor=False)
 
