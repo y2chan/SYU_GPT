@@ -137,7 +137,7 @@ showSidebarNavigation = false
 # * "none" : Streamlit will not watch files.
 
 # Default: "auto"
-# fileWatcherType = "auto"
+fileWatcherType = "none"
 
 # Symmetric key used to produce signed cookies. If deploying on multiple replicas, this should
 # be set to the same value across all replicas to ensure they all share the same secret.
